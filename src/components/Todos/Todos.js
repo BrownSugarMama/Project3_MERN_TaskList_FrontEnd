@@ -1,18 +1,22 @@
 import React, { Component } from 'react'
-import { Link, Route } from 'react-router-dom
+import { Link, Route } from 'react-router-dom'
+import { Container, Row, Col  } from 'reactstrap'
 
-class Todo extends Component
+class Todos extends Component
     render () {
         let todo = this.props.todo.find(
-            todo => (todo.symbol = this.props.match.params.symbol)
+            todo => (todo.list = this.props.match.params.list)
         )
         return (
-            <div> 
-                <h2> TASK LIST
-                </h2>
-            </div>
+            <Container>
+                  <Row>
+                    <Col xs="auto"> { todo.title }  </Col>
+                    <Col xs="3"> { todo.category }  </Col>
+                    <Col xs="3"> { todo.importance } </Col>
+                  </Row>
+            </Container>
         )
     }
 
 
-    export default Todo
+    export default Todos
