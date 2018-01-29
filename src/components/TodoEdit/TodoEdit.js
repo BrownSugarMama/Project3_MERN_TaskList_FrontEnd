@@ -4,7 +4,7 @@ class TodoEdit extends Component {
   render () {
     return (
       <div>
-        <h1>Edit to do</h1>
+        <h2>Edit to do</h2>
       </div>
     )
   }
