@@ -32,7 +32,7 @@ class Todos extends Component {
             <Col xs='6'>
               <Link
                 to={`${this.props.match.url}/${todo._id}`}
-                onClick={this.props.setTodo}
+                // onClick={this.props.setTodo}
               >
                 <span id='todo-title'>{todo.title}</span>
               </Link>
