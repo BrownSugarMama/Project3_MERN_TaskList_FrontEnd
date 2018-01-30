@@ -10,12 +10,12 @@ class TodoEdit extends Component {
     }
     this.TodoEdit = this.TodoEdit.bind(this)
   }
-
+// fectching data from backend to update
   componentDidMount () {
     axios
       .get(
         // actual backend url or back end api url address
-        'url' +
+        'http://localhost:3001/todo' +
           this.state.targetTodoEdit
       )
       .then(response => {
@@ -49,11 +49,20 @@ class TodoEdit extends Component {
         <div id='todo-detail'>
 
           <p>
-            <span id='label'>Todo Title:</span>{' '}
-            {this.state.todoDetail.tTitle}
+            <span id='label'>Todo Title:</span>{' '} {this.state.todoDetail.tTitle}
           </p>
           <p>
             <span id='label'>Todo Desc:</span> {this.state.todoDetail.tDesc}
+          </p>
+
+          <p>
+            <span id='label'> Todo Impoertance :</span> {this.state.todoDetail.tImp}
+          </p>
+          <p>
+            <span id='label'> Todo Catagory:</span> {this.state.todoDetail.tCat}
+          </p>
+          <p>
+            <span id='label'> Todo Status:</span> {this.state.todoDetail.tStat}
           </p>
 
           <form onSubmit={this.todoPut}>
