@@ -7,6 +7,7 @@ import Url from from "./Components/url.js"
 
 import { Container, Row, Col  } from 'reactstrap'
 
+    // Todo Component
 class Todos extends Component {
     constructor(props) {
         super(props);
@@ -26,7 +27,7 @@ class Todos extends Component {
       }
     
         render() {
-            // let { history } = this.props
+            let { history } = this.props;
             let todos = this.state.todos.map((todo, index) => {
               return (
                 <div id="todos-body" key={index}>
@@ -53,6 +54,13 @@ class Todos extends Component {
                 </div>
               )
             })
+            // TodoAdd Component
+            return (
+                <div>
+                  {todos}
+                  <Todo history={history} />
+                </div>
+              );
     }
 }
 
