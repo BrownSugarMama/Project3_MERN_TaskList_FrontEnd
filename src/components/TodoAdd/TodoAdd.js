@@ -32,7 +32,7 @@ class TodoAdd extends Component {
   }
 
   componentDidUpdate() {
-    let newTodo = {
+    this.newTodo = {
       title: this.state.title,
       desc: this.state.desc,
       imp: this.state.imp,
@@ -40,12 +40,11 @@ class TodoAdd extends Component {
       dueDate: this.state.dueDate,
       status: this.state.status
     };
-    // console.log("STATE.TITLE:" + this.state.title);
-    console.log("newTodo: " + newTodo);
+    console.log("newTodo: " + this.newTodo);
   }
 
   onAddTodoSubmit(e) {
-    e.preventDefault();
+    // e.preventDefault();
     console.log("NEWTODO: " + this.newTodo);
     axios.post("http://localhost:3001/todo", this.newTodo).then(data => {
       console.log(data);
