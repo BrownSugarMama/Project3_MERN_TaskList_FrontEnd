@@ -13,8 +13,8 @@ import {
 } from 'reactstrap'
 
 class TodoAdd extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = {
       title: '',
       desc: '',
@@ -25,22 +25,22 @@ class TodoAdd extends Component {
       collapse: false
     }
 
-    this.onAddTodoSubmit = this.onAddTodoSubmit.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
+    this.onAddTodoSubmit = this.onAddTodoSubmit.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
   }
 
   // sourced from https://reactjs.org/docs/forms.html#handling-multiple-inputs
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
+  handleInputChange (event) {
+    const target = event.target
+    const value = target.value
+    const name = target.name
 
     this.setState({
       [name]: value
-    });
+    })
   }
 
-  componentDidUpdate() {
+  componentDidUpdate () {
     this.newTodo = {
       title: this.state.title,
       desc: this.state.desc,
@@ -62,38 +62,40 @@ class TodoAdd extends Component {
     })
   }
 
-  render() {
+  render () {
     return (
-      <div className="form" id="todo-add-body">
+      <div className='form' id='todo-add-body'>
         <hr />
+
         <Collapse isOpen={this.state.collapse}>
+
           <Form onSubmit={this.onAddTodoSubmit}>
-          <FormGroup>
-            <Label for="titleInput">Title:</Label>
-            <Input
-              type="text"
-              name="title"
-              id="titleInput"
+            <FormGroup>
+              <Label for='titleInput'>Title:</Label>
+              <Input
+              type='text'
+              name='title'
+              id='titleInput'
               onChange={this.handleInputChange}
             />
-          </FormGroup>
+            </FormGroup>
 
-          <FormGroup>
-            <Label for="descInput">Description:</Label>
-            <Input
-              type="textarea"
-              name="desc"
-              id="descInput"
+            <FormGroup>
+              <Label for='descInput'>Description:</Label>
+              <Input
+              type='textarea'
+              name='desc'
+              id='descInput'
               onChange={this.handleInputChange}
             />
-          </FormGroup>
+            </FormGroup>
 
-          <FormGroup>
-            <Label for="impSelect">Importance:</Label>
-            <Input
-              type="select"
-              name="imp"
-              id="impSelect"
+            <FormGroup>
+              <Label for='impSelect'>Importance:</Label>
+              <Input
+              type='select'
+              name='imp'
+              id='impSelect'
               onChange={this.handleInputChange}
             >
               <option>Select Importance</option>
@@ -104,14 +106,14 @@ class TodoAdd extends Component {
               <option>Very High</option>
               <option>Critical</option>
             </Input>
-          </FormGroup>
+            </FormGroup>
 
-          <FormGroup>
-            <Label for="catSelect">Category:</Label>
-            <Input
-              type="select"
-              name="cat"
-              id="catSelect"
+            <FormGroup>
+              <Label for='catSelect'>Category:</Label>
+              <Input
+              type='select'
+              name='cat'
+              id='catSelect'
               onChange={this.handleInputChange}
             >
               <option>Select Category</option>
@@ -120,24 +122,24 @@ class TodoAdd extends Component {
               <option>School</option>
               <option>Work</option>
             </Input>
-          </FormGroup>
+            </FormGroup>
 
-          <FormGroup>
-            <Label for="dueDateInput">Due Date:</Label>
-            <Input
-              type="date"
-              name="dueDate"
-              id="dueDateInput"
+            <FormGroup>
+              <Label for='dueDateInput'>Due Date:</Label>
+              <Input
+              type='date'
+              name='dueDate'
+              id='dueDateInput'
               onChange={this.handleInputChange}
             />
-          </FormGroup>
+            </FormGroup>
 
-          <FormGroup>
-            <Label for="statusSelect">Status:</Label>
-            <Input
-              type="select"
-              name="status"
-              id="statusSelect"
+            <FormGroup>
+              <Label for='statusSelect'>Status:</Label>
+              <Input
+              type='select'
+              name='status'
+              id='statusSelect'
               onChange={this.handleInputChange}
             >
               <option>Select Status</option>
@@ -147,14 +149,15 @@ class TodoAdd extends Component {
               <option>Complete</option>
               <option>Archive</option>
             </Input>
-          </FormGroup>
+            </FormGroup>
 
-          <input type="submit" value="Add Todo" />
-        </Form>
+            <input type='submit' value='Add Todo' />
+          </Form>
+
         </Collapse>
       </div>
-    );
+    )
   }
 }
 
-export default TodoAdd;
+export default TodoAdd
