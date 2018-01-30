@@ -1,1 +1,17 @@
+#todos-body {
+  text-align: left;
+  padding-top: 10px;
+}
 
+#todo-title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#todos-table-header {
+  padding-top: 10px;
+  font-weight: bold;
+  background: rgb(54, 4, 232);
+  color: White;
+  text-align: left;
+}
