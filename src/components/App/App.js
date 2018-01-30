@@ -1,42 +1,14 @@
-<<<<<<< HEAD
-import React, { Component } from 'react'
-
-import Category from '../Category/Category.js'
-import About from '../About/About.js'
-import Todos from '../Todos/Todos.js'
-import TodoEdit from '../TodoEdit/TodoEdit.js'
-import './App.css'
-=======
-<<<<<<< HEAD
 import React, { Component } from 'react';
-import logo from '../../logo.svg';
-import './App.css';
-=======
-import React, { Component } from "react";
 
-import Category from "../Category/Category.js";
-import About from "../About/About.js";
-import Todos from "../Todos/Todos.js";
-import TodoEdit from "../TodoEdit/TodoEdit.js";
-import "./App.css";
->>>>>>> 99256b5a5c30298245ed4fd3630edb4a4ab35f0c
->>>>>>> 128b2347cf47c31eba10420e938167b7ac105eda
+import Category from '../Category/Category.js';
+import About from '../About/About.js';
+import Todos from '../Todos/Todos.js';
+import TodoEdit from '../TodoEdit/TodoEdit.js';
+import './App.css';
 
 import { Route, Link, Redirect, Switch } from 'react-router-dom'
 
 class App extends Component {
-<<<<<<< HEAD
-  render () {
-    return (
-      <div className='App'>
-        <header className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-          <h1 className='App-title'>test</h1>
-        </header>
-        <p className='App-intro'>
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-=======
   // constructor(props) {
   //   super(props);
   //   initialize state
@@ -63,7 +35,6 @@ class App extends Component {
             {/* <Route path="/*" render={() => <Redirect to="/todo" />} /> */}
           </Switch>
         </main>
->>>>>>> 99256b5a5c30298245ed4fd3630edb4a4ab35f0c
       </div>
     )
   }
