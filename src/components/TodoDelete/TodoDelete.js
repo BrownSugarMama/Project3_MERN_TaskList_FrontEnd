@@ -20,7 +20,6 @@ class Delete extends Component {
         });
       });
   }
-  
 
 
   render () {
