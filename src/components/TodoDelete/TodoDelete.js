@@ -5,7 +5,7 @@ import axios from 'axios'
 
 class Delete extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       delete: []
     }
@@ -17,8 +17,8 @@ class Delete extends Component {
       .then(response => {
         this.setState({
           delete: response.data
-        });
-      });
+        })
+      })
   }
 
 
