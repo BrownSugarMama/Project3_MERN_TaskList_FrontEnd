@@ -36,7 +36,7 @@ class TodoEdit extends Component {
 
       .then(() => {
         // =============
-        this.props.history.push('/buckets')
+        this.props.history.push('/todos')
       })
   }
 
