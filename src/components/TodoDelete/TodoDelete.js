@@ -18,7 +18,7 @@ class Delete extends Component {
     return (
 
       <div>
-        <button type='button' class='delteButton'>deleteButton'>Delete</button>
+        <button type='button' class='deleteButton'>deleteButton'>Delete</button>
       </div>
     )
   }
