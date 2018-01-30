@@ -8,8 +8,28 @@ class Delete extends Component {
     super(props)
     this.state = {
       delete: []
+      
     }
   }
+  /*
+  class TodoEdit extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      TodoEditDetail: {},
+      targetTodoEdit: this.props.match.params.tTitle
+    }
+    this.TodoEdit = this.TodoEdit.bind(this)
+  }
+
+  */
+
+
+
+
+
+
+
 
   componentDidMount() {
     axios
