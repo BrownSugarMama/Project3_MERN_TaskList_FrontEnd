@@ -3,6 +3,7 @@ import axios from "axios"
 import "./Todos.css"
 import { Link, Route } from 'react-router-dom'
 import TodoAdd from "./TodoAdd/TodoAdd.js"
+import Url from from "./Components/url.js"
 
 import { Container, Row, Col  } from 'reactstrap'
 
@@ -16,7 +17,7 @@ class Todos extends Component {
 
       componentDidMount() {
         axios
-          .get("http://localhost:3001/todo")
+          .get ${ url }
           .then(response => {
             this.setState({
               todos: response.data
