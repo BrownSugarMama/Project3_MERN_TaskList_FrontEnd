@@ -33,9 +33,10 @@ class TodoEdit extends Component {
         'url' +
           this.state.targetTodoEdit
       )
+
       .then(() => {
         // =============
-        this.props.history.push('/buckets')
+        this.props.history.push('/todos')
       })
   }
 
