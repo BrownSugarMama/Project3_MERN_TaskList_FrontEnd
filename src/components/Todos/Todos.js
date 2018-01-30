@@ -3,7 +3,7 @@ import axios from "axios";
 import "./Todos.css";
 // import { Link, Route } from 'react-router-dom'
 import { Link } from "react-router-dom";
-// import TodoAdd from "./TodoAdd/TodoAdd.js";
+import TodoAdd from "../TodoAdd/TodoAdd.js";
 // import Url from from "../Url.js"
 
 import { Container, Row, Col } from "reactstrap";
@@ -57,7 +57,7 @@ class Todos extends Component {
 
           {todos}
         </Container>
-        {/* <TodoAdd history={history} /> */}
+        <TodoAdd history={history} />
       </div>
     );
   }
