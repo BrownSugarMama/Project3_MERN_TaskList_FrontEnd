@@ -2,15 +2,7 @@ import React, { Component } from "react";
 import "./TodoAdd.css";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
-import {
-  Col,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText
-} from "reactstrap";
+import { Form, FormGroup, Label, Input } from "reactstrap";
 
 class TodoAdd extends Component {
   constructor(props) {
@@ -48,12 +40,15 @@ class TodoAdd extends Component {
       dueDate: this.state.dueDate,
       status: this.state.status
     };
+    // console.log("STATE.TITLE:" + this.state.title);
+    console.log("newTodo: " + newTodo);
   }
 
   onAddTodoSubmit(e) {
     e.preventDefault();
-    axios.post("http://localhost/:3001/todo", this.newTodo).then(data => {
-      // console.log(data);
+    console.log("NEWTODO: " + this.newTodo);
+    axios.post("http://localhost:3001/todo", this.newTodo).then(data => {
+      console.log(data);
       this.props.history.push("/todo");
     });
   }
@@ -62,7 +57,7 @@ class TodoAdd extends Component {
     return (
       <div className="form" id="todo-add-body">
         <hr />
-        <Form onSubmit={this.onAddTodoSubmit} method="post">
+        <Form onSubmit={this.onAddTodoSubmit}>
           <FormGroup>
             <Label for="titleInput">Title:</Label>
             <Input
