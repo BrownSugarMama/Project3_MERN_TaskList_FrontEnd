@@ -1,7 +1,7 @@
 import { render } from 'react-dom'
 import { URLProvider } from 'react-url'
 
-import App from './containers/App'
+import App from './components/App/App.js'
 
 const url = {
   profile: '/profile/:username/'
