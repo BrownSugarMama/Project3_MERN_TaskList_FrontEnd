@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import React, { Component } from "react";
-import "./TodoAdd.css";
-import axios from "axios";
-import { withRouter } from "react-router-dom";
-import { Form, FormGroup, Label, Input } from "reactstrap";
-=======
 import React, { Component } from 'react'
 import './TodoAdd.css'
 import axios from 'axios'
@@ -18,7 +11,6 @@ import {
   Input,
   FormText
 } from 'reactstrap'
->>>>>>> 87dc5d251ea1d68de8319ec3e4409d4242a9ff60
 
 class TodoAdd extends Component {
   constructor (props) {
