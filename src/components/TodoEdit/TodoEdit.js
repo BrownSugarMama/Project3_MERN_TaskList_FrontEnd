@@ -10,7 +10,7 @@ class TodoEdit extends Component {
     }
     this.TodoEdit = this.TodoEdit.bind(this)
   }
-
+// fectching data from backend to update
   componentDidMount () {
     axios
       .get(
