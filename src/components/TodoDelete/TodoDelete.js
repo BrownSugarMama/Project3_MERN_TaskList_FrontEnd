@@ -4,21 +4,31 @@ import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 
 class Delete extends Component {
-  /* e.preventDefault()
-  axios
-    .delete(
-      //add link here
-    )
-    .then(( => {
-      this.props.history.push()
-    })
+  constructor(props) {
+    super(props)
+    this.state = {
+      delete: []
+    }
+  }
 
-  } */
+  componentDidMount() {
+    axios
+      .get ${ url }
+      .then(response => {
+        this.setState({
+          delete: response.data
+        })
+      })
+  }
+
+
   render () {
     return (
 
       <div>
-        <button type='button' class='delteButton'>deleteButton'>Delete</button>
+        <button type='button' className='deleteButton'>
+        <Link to='Todos.js'>Delete</Link>
+        </button>
       </div>
     )
   }
