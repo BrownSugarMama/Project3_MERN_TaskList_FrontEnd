@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import Category from "../Category/Category.js";
 import About from "../About/About.js";
-import Todos from "../Todos/Todos.js";
+// import Todos from "../Todos/Todos.js";
 import TodoEdit from "../TodoEdit/TodoEdit.js";
 import "./App.css";
 
@@ -30,7 +30,7 @@ class App extends Component {
           <Switch>
             <Route path="/category" render={() => <Category />} />
             <Route path="/about" render={() => <About />} />
-            <Route exact path="/todo" render={props => <Todos {...props} />} />
+            {/* <Route exact path="/todo" render={props => <Todos {...props} />} /> */}
             <Route path="/todo/:_id" component={TodoEdit} />
             {/* <Route path="/*" render={() => <Redirect to="/todo" />} /> */}
           </Switch>
