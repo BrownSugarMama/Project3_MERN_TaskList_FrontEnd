@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import React, { Component } from "react";
-import "./TodoAdd.css";
-import axios from "axios";
-import { withRouter } from "react-router-dom";
-import { Form, FormGroup, Label, Input } from "reactstrap";
-=======
 import React, { Component } from 'react'
 import './TodoAdd.css'
 import axios from 'axios'
@@ -18,7 +11,6 @@ import {
   Input,
   FormText
 } from 'reactstrap'
->>>>>>> 87dc5d251ea1d68de8319ec3e4409d4242a9ff60
 
 class TodoAdd extends Component {
   constructor (props) {
@@ -29,7 +21,8 @@ class TodoAdd extends Component {
       imp: '',
       cat: '',
       dueDate: '',
-      status: ''
+      status: '',
+      collapse: false
     }
 
     this.onAddTodoSubmit = this.onAddTodoSubmit.bind(this)
@@ -55,25 +48,26 @@ class TodoAdd extends Component {
       cat: this.state.desc,
       dueDate: this.state.dueDate,
       status: this.state.status
-    };
+    }
     // console.log("STATE.TITLE:" + this.state.title);
-    console.log("newTodo: " + newTodo);
+    console.log('newTodo: ' + newTodo)
   }
 
-  onAddTodoSubmit(e) {
-    e.preventDefault();
-    console.log("NEWTODO: " + this.newTodo);
-    axios.post("http://localhost:3001/todo", this.newTodo).then(data => {
-      console.log(data);
-      this.props.history.push("/todo");
-    });
+  onAddTodoSubmit (e) {
+    e.preventDefault()
+    console.log('NEWTODO: ' + this.newTodo)
+    axios.post('http://localhost:3001/todo', this.newTodo).then(data => {
+      console.log(data)
+      this.props.history.push('/todo')
+    })
   }
 
   render () {
     return (
       <div className='form' id='todo-add-body'>
         <hr />
-        <Form onSubmit={this.onAddTodoSubmit}>
+        <Collapse isOpen={this.state.collapse}>
+          <Form onSubmit={this.onAddTodoSubmit}>
           <FormGroup>
             <Label for='titleInput'>Title:</Label>
             <Input
@@ -102,6 +96,7 @@ class TodoAdd extends Component {
               id='impSelect'
               onChange={this.handleInputChange}
             >
+              <option>Select Importance</option>
               <option>Very Low</option>
               <option>Low</option>
               <option>Moderate</option>
@@ -119,6 +114,7 @@ class TodoAdd extends Component {
               id='catSelect'
               onChange={this.handleInputChange}
             >
+              <option>Select Category</option>
               <option>Health </option>
               <option>Personal </option>
               <option>School</option>
@@ -144,6 +140,7 @@ class TodoAdd extends Component {
               id='statusSelect'
               onChange={this.handleInputChange}
             >
+              <option>Select Status</option>
               <option>Backlog</option>
               <option>Planned </option>
               <option>In-Process</option>
@@ -154,6 +151,7 @@ class TodoAdd extends Component {
 
           <input type='submit' value='Add Todo' />
         </Form>
+        </Collapse>
       </div>
     )
   }
