@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React, { Component } from 'react'
 
 import Category from '../Category/Category.js'
@@ -6,7 +6,6 @@ import About from '../About/About.js'
 import Todos from '../Todos/Todos.js'
 import TodoEdit from '../TodoEdit/TodoEdit.js'
 import './App.css'
-=======
 <<<<<<< HEAD
 import React, { Component } from 'react';
 import logo from '../../logo.svg';
