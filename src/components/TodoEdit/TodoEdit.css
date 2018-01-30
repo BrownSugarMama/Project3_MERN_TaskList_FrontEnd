@@ -1,3 +1,19 @@
-h1{
-    color: blue;
-}
+#TodoEdit-title {
+    color: rgb(4, 45, 160);
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  #TodoEdit-detail-body {
+    text-align: left;
+  }
+  
+  #label {
+    text-decoration: underline;
+    font-weight: bold;
+    padding-left: 20px;
+  }
+  
+  #TodoEdit-form {
+    margin: 20px;
+  }
