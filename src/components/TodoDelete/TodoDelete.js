@@ -36,9 +36,12 @@ class Delete extends Component {
   }
 
   render () {
+<<<<<<< HEAD
     return (
 
   render () {}
+=======
+>>>>>>> master
     return (
       <div>
         <button type='button' className='deleteButton'>
