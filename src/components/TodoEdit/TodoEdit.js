@@ -161,7 +161,7 @@ class TodoEdit extends Component {
             </Input>
           </FormGroup>
 
-          <input type='submit' value='Edit Todo' />
+          <input type='submit' value='Edit Todo' className='btn btn-primary' />
         </Form>
       </div>
     )

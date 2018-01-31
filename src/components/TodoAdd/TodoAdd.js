@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import './TodoAdd.css'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
-//import { Form, FormGroup, Label, Input } from 'reactstrap';
+// import { Form, FormGroup, Label, Input } from 'reactstrap';
 import {
   Col,
   Button,
@@ -13,7 +13,7 @@ import {
   Input,
   FormText,
   Collapse
-} from 'reactstrap';
+} from 'reactstrap'
 
 class TodoAdd extends Component {
   constructor (props) {
@@ -164,7 +164,7 @@ class TodoAdd extends Component {
               </Input>
             </FormGroup>
 
-            <input type='submit' value='Add Todo' class='btn btn-primary' />
+            <input type='submit' value='Add Todo' className='btn btn-primary' />
           </Form>
         </Collapse>
       </div>
