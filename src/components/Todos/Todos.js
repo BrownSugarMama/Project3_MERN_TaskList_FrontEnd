@@ -56,6 +56,7 @@ class Todos extends Component {
                 colorIndex='light-2'>
             Title
               </Box>
+          </Columns>
           
 
           <Columns responsive={false}
@@ -66,6 +67,7 @@ class Todos extends Component {
                 colorIndex='light-2'>
             Category
           </Box>
+          </Columns>
 
           <Columns responsive={false}
             size='small'>
@@ -75,6 +77,8 @@ class Todos extends Component {
                 colorIndex='light-2'>
             Importance
           </Box>
+          </Columns>
+
           <Columns responsive={false}
             size='small'>
           <Box align='center'
