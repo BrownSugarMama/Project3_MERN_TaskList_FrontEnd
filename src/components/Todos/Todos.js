@@ -88,10 +88,6 @@ class Todos extends Component {
             Categories
           </Box>
           </Columns>
-          {todos}
-        
-        
-        <TodoAdd history={history} />
       
     
     )
@@ -99,4 +95,11 @@ class Todos extends Component {
 }
 
 export default Todos
+/*
+
+possible way to sort through items....
+this.state.data.map((item, i) => <div key={i}> {item.matchID}  
+                      {item.timeM} {item.description}</div>)
+
+*/
 
