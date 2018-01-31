@@ -47,7 +47,7 @@ class Todos extends Component {
     })
 
     return ( 
-      <Container>
+      
           <Columns responsive={false} 
              size='large'>
               <Box align='start'
@@ -85,7 +85,7 @@ class Todos extends Component {
           </Box>
           </Columns>
           {todos}
-        </Container>
+        
         
         <TodoAdd history={history} />
       
