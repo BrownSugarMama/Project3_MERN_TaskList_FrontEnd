@@ -33,7 +33,7 @@ class Todos extends Component {
             <Columns responsive={false}
               <Link
                 to={`${this.props.match.url}/${todo._id}`}
-                onClick={this.props.setTodo}
+                // onClick={this.props.setTodo}
               >
                 <span id='todo-title'>{todo.title}</span>
               </Link>

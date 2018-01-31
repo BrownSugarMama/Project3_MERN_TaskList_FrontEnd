@@ -38,6 +38,8 @@ class Delete extends Component {
   render () {
     return (
 
+  render () {}
+    return (
       <div>
         <button type='button' className='deleteButton'>
         <Link to='Todos.js'>Delete</Link>
@@ -48,3 +50,29 @@ class Delete extends Component {
 }
 
 export default Delete
+
+/*
+constructor(props) {
+    super(props);
+    this.state = {
+      bucketDetail: {},
+      targetBucket: this.props.match.params.bTitle
+    };
+    this.bucketDelete = this.bucketDelete.bind(this);
+  }
+
+  componentDidMount() {
+    axios
+      .get(
+        "https://can-do-kanban-bend.herokuapp.com/bucket/" +
+          this.state.targetBucket
+      )
+      .then(response => {
+        this.setState({
+          bucketDetail: response.data
+        });
+      });
+  }
+
+
+*/
