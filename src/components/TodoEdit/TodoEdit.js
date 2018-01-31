@@ -13,11 +13,14 @@ class TodoEdit extends Component {
       imp: '',
       cat: '',
       dueDate: '',
-      status: ''
+      status: '',
+      // target the id
+      targetTodo: this.props.match.params._id
     }
 
     this.onAddTodoSubmit = this.onAddTodoSubmit.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
+    // this.todoUpdate = this.todoUpdate.bind(this)
   }
 
   // sourced from https://reactjs.org/docs/forms.html#handling-multiple-inputs
@@ -40,13 +43,15 @@ class TodoEdit extends Component {
       dueDate: this.state.dueDate,
       status: this.state.status
     }
-    console.log('newTodo: ' + this.newTodo)
+    // console.log('newTodo: ' + this.newTodo)
   }
 
   onAddTodoSubmit (e) {
     // e.preventDefault();
     // console.log('NEWTODO: ' + this.newTodo)
-    axios.post('http://localhost:3001/todo', this.newTodo).then(data => {
+
+    // add id to extract the url
+    axios.put('http://localhost:3001/todo' + this.state.targetTodo).then(data => {
       console.log(data)
       this.props.history.push('/todo')
     })
