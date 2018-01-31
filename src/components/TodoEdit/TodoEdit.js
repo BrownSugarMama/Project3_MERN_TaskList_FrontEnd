@@ -14,12 +14,12 @@ class TodoEdit extends Component {
       cat: '',
       dueDate: '',
       status: '',
-      // todoFormData: {},
       targetTodo: this.props.match.params._id
     }
 
     this.onEditTodoSubmit = this.onEditTodoSubmit.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
+    this.todoDelete = this.todoDelete.bind(this)
     // this.todoUpdate = this.todoUpdate.bind(this)
   }
 
@@ -60,9 +60,6 @@ class TodoEdit extends Component {
       dueDate: this.state.dueDate,
       status: this.state.status
     }
-
-    // console.log('xdsd' + this.props.match.params._id)
-    console.log('test ...' + this.state.todoFormData.title)
   }
 
   onEditTodoSubmit (e) {
