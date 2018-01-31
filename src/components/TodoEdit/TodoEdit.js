@@ -1,62 +1,142 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import './TodoEdit.css'
+import axios from 'axios'
+import { withRouter } from 'react-router-dom'
+import { Form, FormGroup, Label, Input } from 'reactstrap'
 
-import { Container, Row, Col } from 'reactstrap'
-
-// TodoEdit component
 class TodoEdit extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      TodoEditDetail: {}
-      // targetTodoEdit: this.props.match.params.tTitle
+      title: '',
+      desc: '',
+      imp: '',
+      cat: '',
+      dueDate: '',
+      status: ''
     }
-    this.TodoEdit = this.TodoEdit.bind(this)
+
+    this.onAddTodoSubmit = this.onAddTodoSubmit.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
   }
-// fectching data from backend to update
-  componentDidMount () {
-    axios
-      .get('http://localhost:3001/todo').then(response => {
-        this.setState({TodoEdit: response.data})
-      })
+
+  // sourced from https://reactjs.org/docs/forms.html#handling-multiple-inputs
+  handleInputChange (event) {
+    const target = event.target
+    const value = target.value
+    const name = target.name
+
+    this.setState({
+      [name]: value
+    })
+  }
+
+  componentDidUpdate () {
+    this.newTodo = {
+      title: this.state.title,
+      desc: this.state.desc,
+      imp: this.state.imp,
+      cat: this.state.desc,
+      dueDate: this.state.dueDate,
+      status: this.state.status
+    }
+    console.log('newTodo: ' + this.newTodo)
+  }
+
+  onAddTodoSubmit (e) {
+    // e.preventDefault();
+    // console.log('NEWTODO: ' + this.newTodo)
+    axios.post('http://localhost:3001/todo', this.newTodo).then(data => {
+      console.log(data)
+      this.props.history.push('/todo')
+    })
   }
 
   render () {
-    let { history } = this.props
-    let todos = this.state.todos.map((todo, index) => {
-      return (
-        <div id='todos-body' key={index}>
-          <Row>
-            <Col xs='6'>
-              <Link
-                to={`${this.props.match.url}/${todo._id}`}
-                onClick={this.props.setTodo}
-            >
-                <span id='todo-title'>{todo.title}</span>
-              </Link>
-            </Col>
-            <Col xs='2'>{todo.cat}</Col>
-            <Col xs='2'>{todo.imp}</Col>
-            <Col xs='2'>{todo.status}</Col>
-          </Row>
-        </div>
-      )
-    })
-
     return (
-      <div>
-        <Container>
-          <Row id='todos-table-header'>
-            <Col xs='6'>Title:</Col>
-            <Col xs='2'>Category</Col>
-            <Col xs='2'>Importance</Col>
-            <Col xs='2'>Status</Col>
-          </Row>
+      <div className='form' id='todo-add-body'>
+        <hr />
+        <Form onSubmit={this.onAddTodoSubmit}>
+          <FormGroup>
+            <Label for='titleInput'>Title:</Label>
+            <Input
+              type='text'
+              name='title'
+              id='titleInput'
+              onChange={this.handleInputChange}
+            />
+          </FormGroup>
 
-          {todos}
-        </Container>
-        <TodoAdd history={history} />
+          <FormGroup>
+            <Label for='descInput'>Description:</Label>
+            <Input
+              type='textarea'
+              name='desc'
+              id='descInput'
+              onChange={this.handleInputChange}
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <Label for='impSelect'>Importance:</Label>
+            <Input
+              type='select'
+              name='imp'
+              id='impSelect'
+              onChange={this.handleInputChange}
+            >
+              <option>Very Low</option>
+              <option>Low</option>
+              <option>Moderate</option>
+              <option>High</option>
+              <option>Very High</option>
+              <option>Critical</option>
+            </Input>
+          </FormGroup>
+
+          <FormGroup>
+            <Label for='catSelect'>Category:</Label>
+            <Input
+              type='select'
+              name='cat'
+              id='catSelect'
+              onChange={this.handleInputChange}
+            >
+              <option>Health </option>
+              <option>Personal </option>
+              <option>School</option>
+              <option>Work</option>
+            </Input>
+          </FormGroup>
+
+          <FormGroup>
+            <Label for='dueDateInput'>Due Date:</Label>
+            <Input
+              type='date'
+              name='dueDate'
+              id='dueDateInput'
+              onChange={this.handleInputChange}
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <Label for='statusSelect'>Status:</Label>
+            <Input
+              type='select'
+              name='status'
+              id='statusSelect'
+              onChange={this.handleInputChange}
+            >
+              <option>Backlog</option>
+              <option>Planned </option>
+              <option>In-Process</option>
+              <option>Complete</option>
+              <option>Archive</option>
+            </Input>
+          </FormGroup>
+
+          <input type='submit' value='Edit Todo' />
+        </Form>
       </div>
     )
   }
