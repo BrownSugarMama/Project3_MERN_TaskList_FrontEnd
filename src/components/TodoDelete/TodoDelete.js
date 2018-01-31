@@ -4,24 +4,63 @@ import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 
 class Delete extends Component {
-  /* e.preventDefault()
-  axios
-    .delete(
-      //add link here
-    )
-    .then(( => {
-      this.props.history.push()
-    })
+  constructor(props) {
+    super(props);
+    this.state = {
+      Delete: {},
+      targetDelete: this.props.match.params
+    };
+    this.Delete = this.Delete.bind(this);
+    }
 
-  } */
+  } 
+
+  componentDidMount() {
+    axios
+      .get(
+        "link goes here"
+          this.state.targetDelete
+      )
+      .then (responce =>{
+        this.setState({
+          
+        })
+      })
+  }
+
   render () {
     return (
-
       <div>
-        <button type='button' class='deleteButton'>deleteButton'>Delete</button>
+        <button type='button' class='deleteButton'>Delete</button>
       </div>
     )
   }
 }
 
 export default Delete
+
+/*
+constructor(props) {
+    super(props);
+    this.state = {
+      bucketDetail: {},
+      targetBucket: this.props.match.params.bTitle
+    };
+    this.bucketDelete = this.bucketDelete.bind(this);
+  }
+
+  componentDidMount() {
+    axios
+      .get(
+        "https://can-do-kanban-bend.herokuapp.com/bucket/" +
+          this.state.targetBucket
+      )
+      .then(response => {
+        this.setState({
+          bucketDetail: response.data
+        });
+      });
+  }
+
+
+*/
