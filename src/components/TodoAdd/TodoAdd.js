@@ -1,17 +1,8 @@
 import React, { Component } from "react";
 import "./TodoAdd.css";
 import axios from "axios";
-import { withRouter } from "react-router-dom";
-import {
-  Col,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-  Collapse
-} from "reactstrap";
+// import { withRouter } from "react-router-dom";
+import { Button, Form, FormGroup, Label, Input, Collapse } from "reactstrap";
 
 class TodoAdd extends Component {
   constructor(props) {
