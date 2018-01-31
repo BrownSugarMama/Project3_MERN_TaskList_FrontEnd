@@ -1,6 +1,6 @@
 #todos-body {
   text-align: left;
-  padding-top: 5px;
+  padding: 2px;
   widows: 100%;
   background: #F5F3EE;
 }
@@ -23,5 +23,5 @@
 #todo-columns {
   text-transform: uppercase;
   color:#4A96AD;
-  font-size: 12px;
+  font-size: 14px;
 }

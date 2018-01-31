@@ -80,7 +80,7 @@ class TodoAdd extends Component {
           ADD TASK
         </Button>
         <Collapse isOpen={this.state.collapse}>
-          <Form onSubmit={this.onAddTodoSubmit}>
+          <Form id="formlist" onSubmit={this.onAddTodoSubmit}>
             <FormGroup>
               <Label for='titleInput'>Title:</Label>
               <Input
@@ -110,12 +110,9 @@ class TodoAdd extends Component {
                 onChange={this.handleInputChange}
               >
                 <option>Select Importance...</option>
-                <option>Very Low</option>
                 <option>Low</option>
                 <option>Moderate</option>
                 <option>High</option>
-                <option>Very High</option>
-                <option>Critical</option>
               </Input>
             </FormGroup>
 
@@ -162,7 +159,7 @@ class TodoAdd extends Component {
               </Input>
             </FormGroup>
 
-            <input type='submit' value='SUBMIT' className='btn btn-primary' />
+            <input id='addtask' type='submit' value='SUBMIT' />
           </Form>
         </Collapse>
       </div>
