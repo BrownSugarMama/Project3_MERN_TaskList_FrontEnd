@@ -1,12 +1,13 @@
-import React, { Component } from "react";
-import axios from "axios";
-import "./Todos.css";
+import React, { Component } from "react"
+import axios from "axios"
+import "./Todos.css"
 // import { Link, Route } from 'react-router-dom'
-import { Link } from "react-router-dom";
-import TodoAdd from "../TodoAdd/TodoAdd.js";
+import { Link } from "react-router-dom"
+import TodoAdd from "../TodoAdd/TodoAdd.js"
 // import Url from from "../Url.js"
 
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col } from "reactstrap"
+// import { SortableContainer, SortableElement, arrayMove } form 'react-sortable-hoc'
 
 // Todo Component
 class Todos extends Component {
@@ -34,12 +35,20 @@ class Todos extends Component {
                 to={`${this.props.match.url}/${todo._id}`}
                 // onClick={this.props.setTodo}
               >
+
+
                 <span id="todo-title">{todo.title}</span>
               </Link>
             </Col>
-            <Col xs="2">{todo.cat}</Col>
-            <Col xs="2">{todo.imp}</Col>
-            <Col xs="2">{todo.status}</Col>
+            <Col xs="2">
+            <span id="todo-columns">{todo.cat}</span>
+            </Col>
+            <Col xs="2">
+            <span id="todo-columns">{todo.imp}</span>
+            </Col>
+            <Col xs="2">
+            <span id="todo-columns">{todo.status}</span>
+            </Col>
           </Row>
         </div>
       );
@@ -49,10 +58,10 @@ class Todos extends Component {
       <div>
         <Container>
           <Row id="todos-table-header">
-            <Col xs="6">Title:</Col>
-            <Col xs="2">Category</Col>
-            <Col xs="2">Importance</Col>
-            <Col xs="2">Status</Col>
+            <Col xs="6">TITLE</Col>
+            <Col xs="2">CATEGORY</Col>
+            <Col xs="2">IMPORTANCE</Col>
+            <Col xs="2">STATUS</Col>
           </Row>
 
           {todos}

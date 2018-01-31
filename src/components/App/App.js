@@ -13,10 +13,10 @@ class App extends Component {
     return (
       <div>
         <nav>
-          <h1>To-Do-Dos</h1>
-          <Link to='/category'>Category</Link>
-          <Link to='/about'>About</Link>
-          <Link to='/todo'>To-Do-Dos</Link>
+          <h1>TO-DO-DOs</h1>
+          <Link to='/todo'>TASKS</Link>
+          <Link to='/category'>CATEGORY</Link>
+          <Link to='/about'>ABOUT</Link>
         </nav>
         <main>
           <Switch>
