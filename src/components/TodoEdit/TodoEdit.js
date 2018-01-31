@@ -1,93 +1,186 @@
 import React, { Component } from 'react'
 import './TodoEdit.css'
+import axios from 'axios'
+// import { withRouter } from 'react-router-dom'
+import { Form, FormGroup, Label, Input } from 'reactstrap'
 
 class TodoEdit extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      TodoEditDetail: {},
-      targetTodoEdit: this.props.match.params.tTitle
+      title: '',
+      desc: '',
+      imp: '',
+      cat: '',
+      dueDate: '',
+      status: '',
+      targetTodo: this.props.match.params._id
     }
-    this.TodoEdit = this.TodoEdit.bind(this)
+
+    this.onEditTodoSubmit = this.onEditTodoSubmit.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.todoDelete = this.todoDelete.bind(this)
+    // this.todoUpdate = this.todoUpdate.bind(this)
   }
-// fectching data from backend to update
+
   componentDidMount () {
     axios
       .get(
-        // actual backend url or back end api url address
-        'http://localhost:3001/todo' +
-          this.state.targetTodoEdit
+        'http://localhost:3001/todo/' + this.state.targetTodo
       )
       .then(response => {
         this.setState({
-          TodoEdit: response.data
+          title: response.data.title,
+          desc: response.data.desc,
+          imp: response.data.imp,
+          cat: response.data.cat,
+          dueDate: response.data.dueDate
+
         })
       })
   }
 
-  TodoEdit (e) {
+  // sourced from https://reactjs.org/docs/forms.html#handling-multiple-inputs
+  handleInputChange (event) {
+    const target = event.target
+    const value = target.value
+    const name = target.name
+
+    this.setState({
+      [name]: value
+    })
+  }
+
+  componentDidUpdate () {
+    this.editTodo = {
+      title: this.state.title,
+      desc: this.state.desc,
+      imp: this.state.imp,
+      cat: this.state.desc,
+      dueDate: this.state.dueDate,
+      status: this.state.status
+    }
+  }
+
+  onEditTodoSubmit (e) {
+    e.preventDefault()
+    console.log('editTodo: ' + this.editTodo)
+    axios.put('http://localhost:3001/todo/' + this.state.targetTodo, this.editTodo).then(data => {
+      console.log(data)
+      this.props.history.push('/todo')
+    })
+  }
+
+  // the delete
+  todoDelete (e) {
     e.preventDefault()
     axios
-      .put(
-         // actual backend url or back end api url address
-        'url' +
-          this.state.targetTodoEdit
+      .delete(
+        'http://localhost:3001/todo/' + this.state.targetTodo
       )
-
       .then(() => {
-        // =============
-        this.props.history.push('/todos')
+        this.props.history.push('/todo')
       })
   }
 
   render () {
     return (
-      <div id='todo-detail-body'>
-        <h3>
-          <span id='todo-title'>Todo Details</span>
-        </h3>
-        <div id='todo-detail'>
+      <div className='form' id='todo-add-body'>
+        <Form onSubmit={this.onEditTodoSubmit}>
+          <FormGroup>
+            <Label for='titleInput'>Title:</Label>
+            <Input
+              type='text'
+             // defaultValue={this.state.todoFormData.title}
+              value={this.state.title}
+              name='title'
+              id='titleInput'
+              onChange={this.handleInputChange}
+            />
+          </FormGroup>
 
-          <p>
-            <span id='label'>Todo Title:</span>{' '} {this.state.todoDetail.tTitle}
-          </p>
-          <p>
-            <span id='label'>Todo Desc:</span> {this.state.todoDetail.tDesc}
-          </p>
+          <FormGroup>
+            <Label for='descInput'>Description:</Label>
+            <Input
+              type='textarea'
+              value={this.state.desc}
+              name='desc'
+              id='descInput'
+              onChange={this.handleInputChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for='impSelect'>Importance:</Label>
+            <Input
+              type='select'
+              value={this.state.imp}
+              name='imp'
+              id='impSelect'
+              onChange={this.handleInputChange}
+            >
+              <option>Very Low</option>
+              <option>Low</option>
+              <option>Moderate</option>
+              <option>High</option>
+              <option>Very High</option>
+              <option>Critical</option>
+            </Input>
+          </FormGroup>
 
-          <p>
-            <span id='label'> Todo Impoertance :</span> {this.state.todoDetail.tImp}
-          </p>
-          <p>
-            <span id='label'> Todo Catagory:</span> {this.state.todoDetail.tCat}
-          </p>
-          <p>
-            <span id='label'> Todo Status:</span> {this.state.todoDetail.tStat}
-          </p>
+          <FormGroup>
+            <Label for='catSelect'>Category:</Label>
+            <Input
+              type='select'
+              value={this.state.cat}
+              name='cat'
+              id='catSelect'
+              onChange={this.handleInputChange}
+            >
+              <option>Health </option>
+              <option>Personal </option>
+              <option>School</option>
+              <option>Work</option>
+            </Input>
+          </FormGroup>
 
-          <form onSubmit={this.todoPut}>
-            <input id='todo-form' type='submit' value='Put todo' />
-          </form>
-        </div>
+          <FormGroup>
+            <Label for='dueDateInput'>Due Date:</Label>
+            <Input
+              type='date'
+              value={this.state.dueDate}
+              name='dueDate'
+              id='dueDateInput'
+              onChange={this.handleInputChange}
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <Label for='statusSelect'>Status:</Label>
+            <Input
+              type='select'
+              value={this.state.status}
+              name='status'
+              id='statusSelect'
+              onChange={this.handleInputChange}
+            >
+              <option>Backlog</option>
+              <option>Planned </option>
+              <option>In-Process</option>
+              <option>Complete</option>
+              <option>Archive</option>
+            </Input>
+          </FormGroup>
+
+          <input type='submit' value='Edit Todo' className='btn btn-primary' />
+        </Form>
+        <br />
+        <Form onSubmit={this.todoDelete}>
+          <input type='submit' value='Delete Todo' className='btn btn-primary' />
+
+        </Form>
       </div>
     )
   }
 }
 
 export default TodoEdit
-
-// =============================================
-// up on submitting the ToodEdit  this function is excuted at the back end .
-// ==============================================
-
-// function todoPut (request, response) {
-//   Todo.findOneAndUpdate({ _id: request.params.id }, request.body, {
-//     new: true
-//   })
-//     .then(todo => {
-//       response.status(200).json(todo)
-//     })
-//     .catch(err => {
-//       response.status(500).send({ error: 'Nope!' })
-//     })
-// }

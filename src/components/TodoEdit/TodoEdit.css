@@ -1,20 +1,20 @@
 /* TodoEdit form */
-#TodoEdit-title {
-    color: rgb(4, 45, 160);
-    margin: 10px;
-    padding: 10px;
+
+  #todos-body {
+    text-align: left;
+    padding-top: 10px;
   }
   
-  #TodoEdit-detail-body {
+  #todo-title {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  #todos-table-header {
+    padding-top: 10px;
+    font-weight: bold;
+    background: rgb(54, 4, 232);
+    color: White;
     text-align: left;
   }
   
-  #label {
-    text-decoration: underline;
-    font-weight: bold;
-    padding-left: 20px;
-  }
-  
-  #TodoEdit-form {
-    margin: 20px;
-  }

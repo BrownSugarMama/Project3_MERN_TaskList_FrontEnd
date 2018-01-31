@@ -7,7 +7,12 @@ import { Link } from 'react-router-dom'
 import TodoAdd from '../TodoAdd/TodoAdd.js'
 // import Url from from "../Url.js"
 
+<<<<<<< HEAD
 import { Container, Row, Col } from 'reactstrap'
+=======
+import { Container, Row, Col } from "reactstrap";
+// import { SortableContainer, SortableElement, arrayMove } form 'react-sortable-hoc'
+>>>>>>> master
 
 // Todo Component
 class Todos extends Component {
@@ -37,15 +42,30 @@ class Todos extends Component {
               >
                 <span id='todo-title'>{todo.title}</span>
               </Link>
+<<<<<<< HEAD
             </Columns>
             <Columns responsive={false}>{todo.cat}</Columns>
             <Columns responsive={false}>{todo.imp}</Columns>
             <Columns responsive={false}>{todo.status}</Columns>
         
+=======
+            </Col>
+            <Col xs="2">
+              <span id="todo-columns">{todo.cat}</span>
+            </Col>
+            <Col xs="2">
+              <span id="todo-columns">{todo.imp}</span>
+            </Col>
+            <Col xs="2">
+              <span id="todo-columns">{todo.status}</span>
+            </Col>
+          </Row>
+>>>>>>> master
         </div>
       )
     })
 
+<<<<<<< HEAD
     return ( 
       
           <Columns responsive={false} 
@@ -58,6 +78,17 @@ class Todos extends Component {
               </Box>
           </Columns>
           
+=======
+    return (
+      <div>
+        <Container>
+          <Row id="todos-table-header">
+            <Col xs="6">TITLE</Col>
+            <Col xs="2">CATEGORY</Col>
+            <Col xs="2">IMPORTANCE</Col>
+            <Col xs="2">STATUS</Col>
+          </Row>
+>>>>>>> master
 
           <Columns responsive={false}
             size='small'>
