@@ -1,9 +1,7 @@
-
-import React, { Component } from 'react'
-import './TodoAdd.css'
-import axios from 'axios'
-import { withRouter } from 'react-router-dom'
-// import { Form, FormGroup, Label, Input } from 'reactstrap';
+import React, { Component } from 'react';
+import './TodoAdd.css';
+import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 import {
   Col,
   Button,
@@ -13,7 +11,7 @@ import {
   Input,
   FormText,
   Collapse
-} from 'reactstrap'
+} from 'reactstrap';
 
 class TodoAdd extends Component {
   constructor (props) {
@@ -79,10 +77,10 @@ class TodoAdd extends Component {
           onClick={this.toggle}
           style={{ marginBottom: '1rem' }}
         >
-          Toggle
+          ADD TASK
         </Button>
         <Collapse isOpen={this.state.collapse}>
-          <Form onSubmit={this.onAddTodoSubmit}>
+          <Form id="formlist" onSubmit={this.onAddTodoSubmit}>
             <FormGroup>
               <Label for='titleInput'>Title:</Label>
               <Input
@@ -111,13 +109,10 @@ class TodoAdd extends Component {
                 id='impSelect'
                 onChange={this.handleInputChange}
               >
-                <option>Select Importance</option>
-                <option>Very Low</option>
+                <option>Select Importance...</option>
                 <option>Low</option>
                 <option>Moderate</option>
                 <option>High</option>
-                <option>Very High</option>
-                <option>Critical</option>
               </Input>
             </FormGroup>
 
@@ -129,7 +124,7 @@ class TodoAdd extends Component {
                 id='catSelect'
                 onChange={this.handleInputChange}
               >
-                <option>Select Category</option>
+                <option>Select Category...</option>
                 <option>Health </option>
                 <option>Personal </option>
                 <option>School</option>
@@ -164,7 +159,11 @@ class TodoAdd extends Component {
               </Input>
             </FormGroup>
 
+<<<<<<< HEAD
             <input type='submit' value='Add Todo' className='btn btn-primary' />
+=======
+            <input id='addtask' type='submit' value='SUBMIT' />
+>>>>>>> neechie
           </Form>
         </Collapse>
       </div>
