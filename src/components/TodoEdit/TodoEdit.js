@@ -173,6 +173,7 @@ class TodoEdit extends Component {
 
           <input type='submit' value='Edit Todo' className='btn btn-primary' />
         </Form>
+        <br />
         <Form onSubmit={this.todoDelete}>
           <input type='submit' value='Delete Todo' className='btn btn-primary' />
 
