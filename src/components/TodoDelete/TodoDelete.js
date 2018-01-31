@@ -28,7 +28,7 @@ class Delete extends Component {
       })
   }
 
-  render () {}
+  render () {
     return (
       <div>
         <button type='button' class='deleteButton'>Delete</button>
