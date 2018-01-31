@@ -25,12 +25,6 @@ class Delete extends Component {
   */
 
 
-
-
-
-
-
-
   componentDidMount() {
     axios
       .get ${ url }
@@ -40,7 +34,6 @@ class Delete extends Component {
         })
       })
   }
-
 
   render () {
     return (

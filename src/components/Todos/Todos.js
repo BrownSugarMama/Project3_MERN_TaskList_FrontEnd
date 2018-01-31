@@ -29,25 +29,25 @@ class Todos extends Component {
     let todos = this.state.todos.map((todo, index) => {
       return (
         <div id='todos-body' key={index}>
-          <Row>
-            <Col xs='6'>
+        
+            <Columns responsive={false}
               <Link
                 to={`${this.props.match.url}/${todo._id}`}
                 onClick={this.props.setTodo}
               >
                 <span id='todo-title'>{todo.title}</span>
               </Link>
-            </Col>
-            <Col xs='2'>{todo.cat}</Col>
-            <Col xs='2'>{todo.imp}</Col>
-            <Col xs='2'>{todo.status}</Col>
-          </Row>
+            </Columns>
+            <Columns responsive={false}>{todo.cat}</Columns>
+            <Columns responsive={false}>{todo.imp}</Columns>
+            <Columns responsive={false}>{todo.status}</Columns>
+        
         </div>
       )
     })
 
-    return (
-      <div>
+    return ( 
+      <Container>
           <Columns responsive={false} 
              size='large'>
               <Box align='start'
@@ -56,6 +56,7 @@ class Todos extends Component {
                 colorIndex='light-2'>
             Title
               </Box>
+          
 
           <Columns responsive={false}
             size='small'>
@@ -84,8 +85,10 @@ class Todos extends Component {
           </Box>
           </Columns>
           {todos}
+        </Container>
+        
         <TodoAdd history={history} />
-      </div>
+      
     
     )
   }
