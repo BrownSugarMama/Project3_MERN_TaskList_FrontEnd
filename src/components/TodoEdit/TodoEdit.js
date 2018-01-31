@@ -41,7 +41,12 @@ class TodoEdit extends Component {
       )
       .then(response => {
         this.setState({
-          todoFormData: response.data
+          title: response.data.title,
+          desc: response.data.desc,
+          imp: response.data.imp,
+          cat: response.data.cat,
+          dueDate: response.data.dueDate
+
         })
       })
   }
@@ -71,14 +76,13 @@ class TodoEdit extends Component {
   render () {
     return (
       <div className='form' id='todo-add-body'>
-        <hr />
         <Form onSubmit={this.onEditTodoSubmit}>
           <FormGroup>
             <Label for='titleInput'>Title:</Label>
             <Input
               type='text'
              // defaultValue={this.state.todoFormData.title}
-              value={this.state.todoFormData.title}
+              value={this.state.title}
               name='title'
               id='titleInput'
               onChange={this.handleInputChange}
@@ -89,18 +93,17 @@ class TodoEdit extends Component {
             <Label for='descInput'>Description:</Label>
             <Input
               type='textarea'
-              value={this.state.todoFormData.desc}
+              value={this.state.desc}
               name='desc'
               id='descInput'
               onChange={this.handleInputChange}
             />
           </FormGroup>
-
           <FormGroup>
             <Label for='impSelect'>Importance:</Label>
             <Input
               type='select'
-             // value=this.state.todoFormData.title
+              value={this.state.imp}
               name='imp'
               id='impSelect'
               onChange={this.handleInputChange}
@@ -118,6 +121,7 @@ class TodoEdit extends Component {
             <Label for='catSelect'>Category:</Label>
             <Input
               type='select'
+              value={this.state.cat}
               name='cat'
               id='catSelect'
               onChange={this.handleInputChange}
@@ -133,6 +137,7 @@ class TodoEdit extends Component {
             <Label for='dueDateInput'>Due Date:</Label>
             <Input
               type='date'
+              value={this.state.dueDate}
               name='dueDate'
               id='dueDateInput'
               onChange={this.handleInputChange}
@@ -143,6 +148,7 @@ class TodoEdit extends Component {
             <Label for='statusSelect'>Status:</Label>
             <Input
               type='select'
+              value={this.state.status}
               name='status'
               id='statusSelect'
               onChange={this.handleInputChange}
