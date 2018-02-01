@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./TodoAdd.css";
 import axios from "axios";
-// import { withRouter } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input, Collapse } from "reactstrap";
 
 class TodoAdd extends Component {
@@ -14,6 +13,7 @@ class TodoAdd extends Component {
       cat: "",
       dueDate: "",
       status: "",
+      quote: "",
       collapse: false
     };
 
@@ -40,10 +40,9 @@ class TodoAdd extends Component {
       imp: this.state.imp,
       cat: this.state.desc,
       dueDate: this.state.dueDate,
-      status: this.state.status
+      status: this.state.status,
+      quote: this.state.quote
     };
-    // console.log("STATE.TITLE:" + this.state.title);
-    console.log("newTodo: " + this.newTodo);
   }
 
   toggle() {
@@ -67,7 +66,19 @@ class TodoAdd extends Component {
           ADD TASK
         </Button>
         <Collapse isOpen={this.state.collapse}>
+          <hr />
           <Form id="formlist" onSubmit={this.onAddTodoSubmit}>
+            <FormGroup className="input-group">
+              {/* <Label for="quoteInput">Inspiration:</Label> */}
+              <Input
+                type="textarea"
+                name="quote"
+                id="quoteInput"
+                onChange={this.handleInputChange}
+              />
+              <Button className="form-btn ">GET INSPIRED</Button>
+            </FormGroup>
+
             <FormGroup>
               <Label for="titleInput">Title:</Label>
               <Input
