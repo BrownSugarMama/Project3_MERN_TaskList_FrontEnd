@@ -60,17 +60,6 @@ class TodoAdd extends Component {
   }
 
   getQuote() {
-    // axios({
-    //   method: "get",
-    //   // baseURL: "https://favqs.com/api/qotd",
-    //   URL: "https://favqs.com/api/quotes/",
-    //   params: { filter: "imagination", type: "tag" },
-    //   responseType: "json",
-    //   headers: {
-    //     Authorization: 'Token token="76698700c05834584ae25478a69bbfff"'
-    //   }
-    // })
-
     axios
       .get("https://favqs.com/api/quotes/?filter=imagination&type=tag", {
         headers: {
@@ -78,10 +67,10 @@ class TodoAdd extends Component {
         }
       })
       .then(response => {
+        let indx = Math.floor(Math.random() * 26);
         this.setState({
-          quote: response.data.quotes[0].body
+          quote: response.data.quotes[indx].body
         });
-        console.log("Response", response.dataquotes[0].body);
       })
       .catch(function(error) {
         if (error.response) {
