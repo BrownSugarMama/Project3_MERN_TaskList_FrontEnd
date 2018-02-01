@@ -20,6 +20,7 @@ class TodoAdd extends Component {
     this.onAddTodoSubmit = this.onAddTodoSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.toggle = this.toggle.bind(this);
+    this.getQuote = this.getQuote.bind(this);
   }
 
   // sourced from https://reactjs.org/docs/forms.html#handling-multiple-inputs
@@ -59,9 +60,36 @@ class TodoAdd extends Component {
   }
 
   getQuote() {
-    axios.get("http://localhost:3001/todo").then(response => {
-      this.setState({ quote: response.data });
-    });
+    axios({
+      method: "get",
+      URL: "https://favqs.com/api/quotes/",
+      params: {
+        filter: "imagination",
+        type: "tag"
+      },
+      responseType: "json",
+      headers: {
+        Authorization: 'Token token="76698700c05834584ae25478a69bbfff"'
+      }
+    })
+      .then(response => {
+        this.setState({
+          quote: response.data.quote.body + " -- " + response.data.quote.author
+        });
+        console.log("Response", response.data.quote.body);
+      })
+      .catch(function(error) {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log("Error", error.message);
+        }
+        console.log(error.config);
+      });
   }
 
   render() {
@@ -79,6 +107,7 @@ class TodoAdd extends Component {
               <Input
                 type="textarea"
                 name="quote"
+                value={this.state.quote}
                 id="quoteInput"
                 onChange={this.handleInputChange}
               />
