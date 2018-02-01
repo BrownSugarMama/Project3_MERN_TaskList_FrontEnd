@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 
 class Delete extends Component {
+<<<<<<< HEAD
   constructor(props) {
     super(props);
     this.state = {
@@ -28,10 +29,16 @@ class Delete extends Component {
       })
   }
 
+=======
+>>>>>>> neechie
   render () {
     return (
       <div>
+<<<<<<< HEAD
         <button type='button' class='deleteButton'>Delete</button>
+=======
+        <button type='button' class='deleteButton'> Delete </button>
+>>>>>>> neechie
       </div>
     )
   }

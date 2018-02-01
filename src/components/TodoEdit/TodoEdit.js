@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './TodoEdit.css'
 import axios from 'axios'
-import { withRouter } from 'react-router-dom'
+// import { withRouter } from 'react-router-dom'
 import { Form, FormGroup, Label, Input } from 'reactstrap'
 
 class TodoEdit extends Component {
@@ -14,24 +14,17 @@ class TodoEdit extends Component {
       cat: '',
       dueDate: '',
       status: '',
+<<<<<<< HEAD
      // todoFormData: {},
+=======
+>>>>>>> e76010302150404b9cbd9a4a2c59b2e44878dbb3
       targetTodo: this.props.match.params._id
     }
 
     this.onEditTodoSubmit = this.onEditTodoSubmit.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
+    this.todoDelete = this.todoDelete.bind(this)
     // this.todoUpdate = this.todoUpdate.bind(this)
-  }
-
-  // sourced from https://reactjs.org/docs/forms.html#handling-multiple-inputs
-  handleInputChange (event) {
-    const target = event.target
-    const value = target.value
-    const name = target.name
-
-    this.setState({
-      [name]: value
-    })
   }
 
   componentDidMount () {
@@ -51,6 +44,17 @@ class TodoEdit extends Component {
       })
   }
 
+  // sourced from https://reactjs.org/docs/forms.html#handling-multiple-inputs
+  handleInputChange (event) {
+    const target = event.target
+    const value = target.value
+    const name = target.name
+
+    this.setState({
+      [name]: value
+    })
+  }
+
   componentDidUpdate () {
     this.editTodo = {
       title: this.state.title,
@@ -60,8 +64,11 @@ class TodoEdit extends Component {
       dueDate: this.state.dueDate,
       status: this.state.status
     }
+<<<<<<< HEAD
     // console.log('xdsd' + this.props.match.params._id)
    // console.log('test ...' + this.state.todoFormData.title)
+=======
+>>>>>>> e76010302150404b9cbd9a4a2c59b2e44878dbb3
   }
 
   onEditTodoSubmit (e) {
@@ -71,6 +78,18 @@ class TodoEdit extends Component {
       console.log(data)
       this.props.history.push('/todo')
     })
+  }
+
+  // the delete
+  todoDelete (e) {
+    e.preventDefault()
+    axios
+      .delete(
+        'http://localhost:3001/todo/' + this.state.targetTodo
+      )
+      .then(() => {
+        this.props.history.push('/todo')
+      })
   }
 
   render () {
@@ -162,6 +181,11 @@ class TodoEdit extends Component {
           </FormGroup>
 
           <input type='submit' value='Edit Todo' className='btn btn-primary' />
+        </Form>
+        <br />
+        <Form onSubmit={this.todoDelete}>
+          <input type='submit' value='Delete Todo' className='btn btn-primary' />
+
         </Form>
       </div>
     )
