@@ -13,7 +13,7 @@ class TodoAdd extends Component {
       cat: "",
       dueDate: "",
       status: "",
-      quoteArr: {},
+      quoteObj: {},
       quote: "",
       collapse: false
     };
@@ -61,28 +61,26 @@ class TodoAdd extends Component {
   }
 
   getQuote() {
-    let indx = Math.floor(Math.random() * 26);
-    let quoteContent =
-      this.state.quoteArr[indx].body +
-      " -- " +
-      this.state.quoteArr[indx].author;
+    let indx = Math.floor(Math.random() * 25);
     this.setState({
-      quote: quoteContent
+      quote:
+        this.state.quoteObj.quotes[indx].body +
+        " -- " +
+        this.state.quoteObj.quotes[indx].author
     });
   }
 
   componentDidMount() {
     axios
-      .get("https://favqs.com/api/quotes/?filter=motivation&type=tag", {
+      .get("https://favqs.com/api/quotes/?filter=motivat", {
         headers: {
           Authorization: `Token token="0fc8db57aadb0bd4880fe990bd74e1f0"`
         }
       })
       .then(response => {
         this.setState({
-          quoteArr: response.data.quotes
+          quoteObj: response.data
         });
-        console.log("QUOTE_ARR:" + response.data);
       })
       .catch(function(error) {
         if (error.response) {
