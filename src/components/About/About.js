@@ -7,7 +7,8 @@ class About extends Component {
       // rough draft just outlining things about the app for now and will proof read and finish up
       <div>
         <h3>About</h3>
-        <p>We built a full stack application called Todos. It is basically
+
+        <p> A full stack application called Todos. It is basically
           a Todo List that has reminders and updates.
         </p>
 
@@ -17,6 +18,18 @@ class About extends Component {
         remember things. In the todo list you have: Title,
         Description, Importance, Category, Due Date, and Status.
         </p>
+
+        <h4>Title</h4>
+        <p>In the Title description you can put what you need to be reminded about.</p>
+        <h4>Description</h4>
+        <p>In the description field you type a description of your reminder</p>
+        <h4>Importance</h4>
+        <p>There are 3 level of Importance that you can choose from</p>
+        <ul>
+          <li>Low</li>
+          <li>Moderate</li>
+          <li>High</li>
+        </ul>
       </div>
     )
   }
