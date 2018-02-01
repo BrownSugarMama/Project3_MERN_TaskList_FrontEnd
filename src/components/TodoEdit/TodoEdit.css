@@ -1,20 +1,32 @@
 /* TodoEdit form */
 
-  #todos-body {
-    text-align: left;
-    padding-top: 10px;
-  }
-  
-  #todo-title {
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-  
-  #todos-table-header {
-    padding-top: 10px;
-    font-weight: bold;
-    background: rgb(54, 4, 232);
-    color: White;
-    text-align: left;
-  }
-  
+#todos-body {
+  text-align: left;
+  padding-top: 10px;
+}
+
+#todo-title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#todos-table-header {
+  padding-top: 10px;
+  font-weight: bold;
+  background: rgb(54, 4, 232);
+  color: White;
+  text-align: left;
+}
+
+.form-btn {
+  color: #7d1935;
+  border-style: solid;
+  background: white;
+  border-color: #7d1935;
+  border-width: medium;
+  width: 10%;
+  padding: 16px 32px;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
+}
