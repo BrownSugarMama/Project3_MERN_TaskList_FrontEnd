@@ -14,6 +14,7 @@ class TodoEdit extends Component {
       cat: '',
       dueDate: '',
       status: '',
+     // todoFormData: {},
       targetTodo: this.props.match.params._id
     }
 
@@ -56,6 +57,8 @@ class TodoEdit extends Component {
       dueDate: this.state.dueDate,
       status: this.state.status
     }
+    // console.log('xdsd' + this.props.match.params._id)
+   // console.log('test ...' + this.state.todoFormData.title)
   }
 
   onEditTodoSubmit (e) {
@@ -171,15 +174,15 @@ class TodoEdit extends Component {
             </Input>
           </FormGroup>
 
-          <button id='form-btn' type='submit'>
+          <Button className='form-btn' type='submit'>
             EDIT
-          </button>
+          </Button>
         </Form>
         <br />
         <Form onSubmit={this.todoDelete}>
-          <button id='form-btn' type='submit'>
+          <Button className='form-btn' type='submit'>
             DELETE
-          </button>
+          </Button>
         </Form>
       </div>
     )
