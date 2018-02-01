@@ -6,7 +6,9 @@ class About extends Component {
     return (
       <div>
         <h3>About</h3>
-        <p>Not a Part of MVP</p>
+        <p>We built a full stack application called Todos. It is basically
+          a Todo List that has reminders and updates.
+        </p>
       </div>
     )
   }
