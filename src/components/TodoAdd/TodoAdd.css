@@ -43,3 +43,7 @@
   color: #4A96AD;
   border-color: #4A96AD;
 }
+
+.quote-btn {
+  display: inline-block;
+}
