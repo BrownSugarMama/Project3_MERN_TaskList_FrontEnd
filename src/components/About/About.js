@@ -1,15 +1,17 @@
-import React, { Component } from "react";
-import "./About.css";
+import React, { Component } from 'react'
+import './About.css'
 
 class About extends Component {
-  render() {
+  render () {
     return (
       <div>
         <h3>About</h3>
-        <p>Not part of MPV</p>
+        <p>We built a full stack application called Todos. It is basically
+          a Todo List that has reminders and updates.
+        </p>
       </div>
-    );
+    )
   }
 }
 
-export default About;
+export default About

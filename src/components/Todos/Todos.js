@@ -1,9 +1,10 @@
-import React, { Component } from "react";
-import axios from "axios";
-import "./Todos.css";
+import React, { Component } from 'react'
+import grommet from 'grommet'
+import axios from 'axios'
+import './Todos.css'
 // import { Link, Route } from 'react-router-dom'
-import { Link } from "react-router-dom";
-import TodoAdd from "../TodoAdd/TodoAdd.js";
+import { Link } from 'react-router-dom'
+import TodoAdd from '../TodoAdd/TodoAdd.js'
 // import Url from from "../Url.js"
 
 import { Container, Row, Col } from "reactstrap";
@@ -11,10 +12,13 @@ import { Container, Row, Col } from "reactstrap";
 
 // Todo Component
 class Todos extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = {
       todos: []
+<<<<<<< HEAD
+    }
+=======
     };
     this.compareBy.bind(this);
     this.sortBy.bind(this);
@@ -34,26 +38,27 @@ class Todos extends Component {
     let todosCopy = [...this.state.todos];
     todosCopy.sort(this.compareBy(key));
     this.setState({ todos: todosCopy });
+>>>>>>> d84144b93146d4a31d35732a6ba54d303d80437e
   }
 
-  componentDidMount() {
-    axios.get("http://localhost:3001/todo").then(response => {
-      this.setState({ todos: response.data });
-    });
+  componentDidMount () {
+    axios.get('http://localhost:3001/todo').then(response => {
+      this.setState({ todos: response.data })
+    })
   }
 
-  render() {
-    let { history } = this.props;
+  render () {
+    let { history } = this.props
     let todos = this.state.todos.map((todo, index) => {
       return (
-        <div id="todos-body" key={index}>
-          <Row>
-            <Col xs="6">
+        <div id='todos-body' key={index}>
+        
+            <Columns responsive={false}
               <Link
                 to={`${this.props.match.url}/${todo._id}`}
                 // onClick={this.props.setTodo}
               >
-                <span id="todo-title">{todo.title}</span>
+                <span id='todo-title'>{todo.title}</span>
               </Link>
             </Col>
             <Col xs="2">
@@ -67,8 +72,8 @@ class Todos extends Component {
             </Col>
           </Row>
         </div>
-      );
-    });
+      )
+    })
 
     return (
       <div>
@@ -88,12 +93,40 @@ class Todos extends Component {
             </Col>
           </Row>
 
-          {todos}
-        </Container>
-        <TodoAdd history={history} />
-      </div>
-    );
+          <Columns responsive={false}
+            size='small'>
+          <Box align='center'
+                pad='medium'
+                margin='small'
+                colorIndex='light-2'>
+            Category
+          </Box>
+          </Columns>
+
+          <Columns responsive={false}
+            size='small'>
+          <Box align='center'
+                pad='medium'
+                margin='small'
+                colorIndex='light-2'>
+            Importance
+          </Box>
+          </Columns>
+
+          <Columns responsive={false}
+            size='small'>
+          <Box align='center'
+                pad='medium'
+                margin='small'
+                colorIndex='light-2'>
+            Categories
+          </Box>
+          </Columns>
+      
+    
+    )
   }
 }
 
-export default Todos;
+export default Todos
+
