@@ -14,10 +14,7 @@ class TodoEdit extends Component {
       cat: '',
       dueDate: '',
       status: '',
-<<<<<<< HEAD
      // todoFormData: {},
-=======
->>>>>>> e76010302150404b9cbd9a4a2c59b2e44878dbb3
       targetTodo: this.props.match.params._id
     }
 
@@ -64,11 +61,8 @@ class TodoEdit extends Component {
       dueDate: this.state.dueDate,
       status: this.state.status
     }
-<<<<<<< HEAD
     // console.log('xdsd' + this.props.match.params._id)
    // console.log('test ...' + this.state.todoFormData.title)
-=======
->>>>>>> e76010302150404b9cbd9a4a2c59b2e44878dbb3
   }
 
   onEditTodoSubmit (e) {
