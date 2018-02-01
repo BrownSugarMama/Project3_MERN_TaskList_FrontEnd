@@ -14,7 +14,7 @@
   color: #7d1935;
 }
 
-.form-btn {
+/* .form-btn {
   color: #7d1935;
   border-style: solid;
   background: white;
@@ -25,4 +25,16 @@
   font-weight: bold;
   margin: 4px 2px;
   cursor: pointer;
+} */
+
+#form-btn {
+  color: #7d1935;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#form-btn:hover {
+  background: #F5F3EE;
+  color: #4A96AD;
 }

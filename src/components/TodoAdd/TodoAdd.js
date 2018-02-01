@@ -63,9 +63,9 @@ class TodoAdd extends Component {
     return (
       <div className="form" id="todo-add-body">
         <hr />
-        <Button className="form-btn" onClick={this.toggle}>
+        <button id="form-btn" onClick={this.toggle}>
           ADD TASK
-        </Button>
+        </button>
         <Collapse isOpen={this.state.collapse}>
           <Form id="formlist" onSubmit={this.onAddTodoSubmit}>
             <FormGroup>
@@ -148,9 +148,9 @@ class TodoAdd extends Component {
               </Input>
             </FormGroup>
 
-            <Button className="form-btn" type="submit">
+            <button id="form-btn" type="submit">
               SUBMIT
-            </Button>
+            </button>
           </Form>
         </Collapse>
       </div>

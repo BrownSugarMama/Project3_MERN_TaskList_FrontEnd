@@ -162,6 +162,7 @@ class TodoEdit extends Component {
               id='statusSelect'
               onChange={this.handleInputChange}
             >
+              <option>Select Status</option>
               <option>Backlog</option>
               <option>Planned </option>
               <option>In-Process</option>
