@@ -130,10 +130,13 @@ class TodoEdit extends Component {
               id='catSelect'
               onChange={this.handleInputChange}
             >
-              <option>Health </option>
-              <option>Personal </option>
+              <option>Work </option>
+              <option>Learning </option>
+              <option>Health</option>
               <option>School</option>
-              <option>Work</option>
+              <option>Personal</option>
+              <option>Family</option>
+
             </Input>
           </FormGroup>
 
