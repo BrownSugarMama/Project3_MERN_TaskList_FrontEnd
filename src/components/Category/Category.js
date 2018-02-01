@@ -18,7 +18,6 @@ class Category extends Component {
     this.toggle = this.toggle.bind(this)
   }
 
-  // sourced from https://reactjs.org/docs/forms.html#handling-multiple-inputs
   handleInputChange (event) {
     const target = event.target
     const value = target.value
