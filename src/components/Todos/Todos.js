@@ -73,7 +73,7 @@ class Todos extends Component {
     return (
       <div>
         <Container>
-          <Row id="todos-table-header">
+          <Row id="todo-header">
             <Col xs="6" onClick={() => this.sortBy("title")}>
               TITLE
             </Col>
