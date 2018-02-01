@@ -38,7 +38,7 @@ class TodoAdd extends Component {
       title: this.state.title,
       desc: this.state.desc,
       imp: this.state.imp,
-      cat: this.state.desc,
+      cat: this.state.cat,
       dueDate: this.state.dueDate,
       status: this.state.status
     };
@@ -63,9 +63,9 @@ class TodoAdd extends Component {
     return (
       <div className="form" id="todo-add-body">
         <hr />
-        <Button className="form-btn" onClick={this.toggle}>
+        <button id="form-btn" onClick={this.toggle}>
           ADD TASK
-        </Button>
+        </button>
         <Collapse isOpen={this.state.collapse}>
           <Form id="formlist" onSubmit={this.onAddTodoSubmit}>
             <FormGroup>
@@ -111,11 +111,13 @@ class TodoAdd extends Component {
                 id="catSelect"
                 onChange={this.handleInputChange}
               >
-                <option>Select Category...</option>
-                <option>Health </option>
-                <option>Personal </option>
+             <option>Select Category...</option>
+                <option>Work </option>
+                <option>Learning </option>
+                <option>Health</option>
                 <option>School</option>
-                <option>Work</option>
+                <option>Personal</option>
+                <option>Family</option>  
               </Input>
             </FormGroup>
 
@@ -146,9 +148,9 @@ class TodoAdd extends Component {
               </Input>
             </FormGroup>
 
-            <Button className="form-btn" type="submit">
+            <button id="form-btn" type="submit">
               SUBMIT
-            </Button>
+            </button>
           </Form>
         </Collapse>
       </div>

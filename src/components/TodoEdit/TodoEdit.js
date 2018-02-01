@@ -53,7 +53,7 @@ class TodoEdit extends Component {
       title: this.state.title,
       desc: this.state.desc,
       imp: this.state.imp,
-      cat: this.state.desc,
+      cat: this.state.cat,
       dueDate: this.state.dueDate,
       status: this.state.status
     }
@@ -118,12 +118,10 @@ class TodoEdit extends Component {
               id='impSelect'
               onChange={this.handleInputChange}
             >
-              <option>Very Low</option>
+              <option>Select Importance...</option>
               <option>Low</option>
               <option>Moderate</option>
               <option>High</option>
-              <option>Very High</option>
-              <option>Critical</option>
             </Input>
           </FormGroup>
 
@@ -136,10 +134,14 @@ class TodoEdit extends Component {
               id='catSelect'
               onChange={this.handleInputChange}
             >
-              <option>Health </option>
-              <option>Personal </option>
+              <option>Select Category...</option>
+              <option>Work </option>
+              <option>Learning </option>
+              <option>Health</option>
               <option>School</option>
-              <option>Work</option>
+              <option>Personal</option>
+              <option>Family</option>
+
             </Input>
           </FormGroup>
 
@@ -163,6 +165,7 @@ class TodoEdit extends Component {
               id='statusSelect'
               onChange={this.handleInputChange}
             >
+              <option>Select Status</option>
               <option>Backlog</option>
               <option>Planned </option>
               <option>In-Process</option>
@@ -173,13 +176,13 @@ class TodoEdit extends Component {
 
           <Button className='form-btn' type='submit'>
             EDIT
-          </Button>
+          </button>
         </Form>
         <br />
         <Form onSubmit={this.todoDelete}>
           <Button className='form-btn' type='submit'>
             DELETE
-          </Button>
+          </button>
         </Form>
       </div>
     )
