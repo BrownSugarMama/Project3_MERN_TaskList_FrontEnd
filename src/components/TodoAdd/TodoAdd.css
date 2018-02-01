@@ -4,12 +4,25 @@
   margin: 10px;
 }
 
-#formlist{
-  color: #7D1935;
+#formlist {
+  color: #7d1935;
   text-transform: uppercase;
   font-size: 18px;
 }
 
 #addtask {
-  color: #7D1935;
+  color: #7d1935;
+}
+
+.form-btn {
+  color: #7d1935;
+  border-style: solid;
+  background: white;
+  width: 10%;
+  border-color: #7d1935;
+  border-width: medium;
+  padding: 16px 32px;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
 }

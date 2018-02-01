@@ -1,27 +1,28 @@
 #todos-body {
   text-align: left;
-  padding: 2px;
-  widows: 100%;
-  background: #F5F3EE;
+  padding: 0px;
+  width: 100%;
+  background: #f5f3ee;
 }
 
 #todo-title {
   text-transform: uppercase;
   font-weight: bold;
-  color:#4A96AD;
+  color: #4a96ad;
   font-size: 18px;
 }
 
-#todos-table-header {
-  padding-top: 10px;
+#todo-header {
+  padding-top: 0px;
   font-weight: bold;
-  background: #4A96AD;
   color: White;
+  background: #4a96ad;
   text-align: left;
+  cursor: pointer;
 }
 
 #todo-columns {
   text-transform: uppercase;
-  color:#4A96AD;
+  color: #4a96ad;
   font-size: 14px;
 }

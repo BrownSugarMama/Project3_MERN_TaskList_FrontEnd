@@ -16,7 +16,29 @@ class Todos extends Component {
     super(props)
     this.state = {
       todos: []
+<<<<<<< HEAD
     }
+=======
+    };
+    this.compareBy.bind(this);
+    this.sortBy.bind(this);
+  }
+
+  // sourced from: https://codepen.io/austinlyons/pen/YpmyJB
+  compareBy(key) {
+    return function(a, b) {
+      if (a[key] < b[key]) return -1;
+      if (a[key] > b[key]) return 1;
+      return 0;
+    };
+  }
+
+  // sourced from: https://codepen.io/austinlyons/pen/YpmyJB
+  sortBy(key) {
+    let todosCopy = [...this.state.todos];
+    todosCopy.sort(this.compareBy(key));
+    this.setState({ todos: todosCopy });
+>>>>>>> d84144b93146d4a31d35732a6ba54d303d80437e
   }
 
   componentDidMount () {
@@ -56,11 +78,19 @@ class Todos extends Component {
     return (
       <div>
         <Container>
-          <Row id="todos-table-header">
-            <Col xs="6">TITLE</Col>
-            <Col xs="2">CATEGORY</Col>
-            <Col xs="2">IMPORTANCE</Col>
-            <Col xs="2">STATUS</Col>
+          <Row id="todo-header">
+            <Col xs="6" onClick={() => this.sortBy("title")}>
+              TITLE
+            </Col>
+            <Col xs="2" onClick={() => this.sortBy("cat")}>
+              CATEGORY
+            </Col>
+            <Col xs="2" onClick={() => this.sortBy("imp")}>
+              IMPORTANCE
+            </Col>
+            <Col xs="2" onClick={() => this.sortBy("status")}>
+              STATUS
+            </Col>
           </Row>
 
           <Columns responsive={false}

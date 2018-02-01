@@ -1,17 +1,8 @@
 import React, { Component } from "react";
 import "./TodoAdd.css";
 import axios from "axios";
-import { withRouter } from "react-router-dom";
-import {
-  Col,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-  Collapse
-} from "reactstrap";
+// import { withRouter } from "react-router-dom";
+import { Button, Form, FormGroup, Label, Input, Collapse } from "reactstrap";
 
 class TodoAdd extends Component {
   constructor(props) {
@@ -60,7 +51,7 @@ class TodoAdd extends Component {
   }
 
   onAddTodoSubmit(e) {
-    e.preventDefault();
+    // e.preventDefault();
     console.log("NEWTODO: " + this.newTodo);
     axios.post("http://localhost:3001/todo", this.newTodo).then(data => {
       console.log(data);
@@ -72,11 +63,7 @@ class TodoAdd extends Component {
     return (
       <div className="form" id="todo-add-body">
         <hr />
-        <Button
-          color="primary"
-          onClick={this.toggle}
-          style={{ marginBottom: "1rem" }}
-        >
+        <Button className="form-btn" onClick={this.toggle}>
           ADD TASK
         </Button>
         <Collapse isOpen={this.state.collapse}>
@@ -159,7 +146,9 @@ class TodoAdd extends Component {
               </Input>
             </FormGroup>
 
-            <input id="addtask" type="submit" value="Add To-Do" />
+            <Button className="form-btn" type="submit">
+              SUBMIT
+            </Button>
           </Form>
         </Collapse>
       </div>
