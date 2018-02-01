@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import './TodoAdd.css';
-import axios from 'axios';
+import React, { Component } from 'react'
+import './TodoAdd.css'
+import axios from 'axios'
 // import { withRouter } from "react-router-dom";
-import { Button, Form, FormGroup, Label, Input, Collapse } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Collapse } from 'reactstrap'
 // import Categories from 'cat'
 
 class TodoAdd extends Component {
@@ -17,7 +17,7 @@ class TodoAdd extends Component {
       status: '',
       collapse: false
     }
-    
+
     // Cat selector prop for updates
     // class Cat extends Component {
     //   constructor(props) {
@@ -55,6 +55,18 @@ class TodoAdd extends Component {
     }
     // console.log("STATE.TITLE:" + this.state.title);
     console.log('newTodo: ' + this.newTodo)
+  }
+
+  componentDidMount () {
+    axios
+      .get('http://localhost:3001/todo/' + this.state.targetTodo)
+      .then(response => {
+        this.setState({
+      // array that loops through the cats
+        })
+      })
+// state.title);
+    console.log('newCat: ' + this.newCat)
   }
 
   toggle () {
@@ -122,13 +134,19 @@ class TodoAdd extends Component {
                 id='catSelect'
                 onChange={this.handleInputChange}
               >
+              {/* loop through array in state with all options */}
                 <option>Select Category...</option>
-                <option>Work </option>
+                 <option>
+               function cat
+            
+                  </option>
+                {/* Previous selector options (hardcodde) */}
+                {/* <option>Work </option>
                 <option>Learning </option>
                 <option>Health</option>
                 <option>School</option>
                 <option>Personal</option>
-                <option>Family</option>
+                <option>Family</option> */}
               </Input>
             </FormGroup>
 
