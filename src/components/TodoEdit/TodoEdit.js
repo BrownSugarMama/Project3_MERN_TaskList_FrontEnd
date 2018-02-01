@@ -1,30 +1,30 @@
-import React, { Component } from "react";
-import "./TodoEdit.css";
-import axios from "axios";
+import React, { Component } from 'react';
+import './TodoEdit.css';
+import axios from 'axios';
 // import { withRouter } from 'react-router-dom'
-import { Form, FormGroup, Button, Label, Input } from "reactstrap";
+import { Form, FormGroup, Button, Label, Input } from 'reactstrap';
 
 class TodoEdit extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = {
-      title: "",
-      desc: "",
-      imp: "",
-      cat: "",
-      dueDate: "",
-      status: "",
+      title: '',
+      desc: '',
+      imp: '',
+      cat: '',
+      dueDate: '',
+      status: '',
       targetTodo: this.props.match.params._id
-    };
+    }
 
-    this.onEditTodoSubmit = this.onEditTodoSubmit.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.todoDelete = this.todoDelete.bind(this);
+    this.onEditTodoSubmit = this.onEditTodoSubmit.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.todoDelete = this.todoDelete.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     axios
-      .get("http://localhost:3001/todo/" + this.state.targetTodo)
+      .get('http://localhost:3001/todo/' + this.state.targetTodo)
       .then(response => {
         this.setState({
           title: response.data.title,
@@ -32,22 +32,22 @@ class TodoEdit extends Component {
           imp: response.data.imp,
           cat: response.data.cat,
           dueDate: response.data.dueDate
-        });
-      });
+        })
+      })
   }
 
   // sourced from https://reactjs.org/docs/forms.html#handling-multiple-inputs
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
+  handleInputChange (event) {
+    const target = event.target
+    const value = target.value
+    const name = target.name
 
     this.setState({
       [name]: value
-    });
+    })
   }
 
-  componentDidUpdate() {
+  componentDidUpdate () {
     this.editTodo = {
       title: this.state.title,
       desc: this.state.desc,
@@ -55,82 +55,79 @@ class TodoEdit extends Component {
       cat: this.state.desc,
       dueDate: this.state.dueDate,
       status: this.state.status
-    };
+    }
   }
 
-  onEditTodoSubmit(e) {
-    e.preventDefault();
-    console.log("editTodo: " + this.editTodo);
+  onEditTodoSubmit (e) {
+    e.preventDefault()
+    console.log('editTodo: ' + this.editTodo)
     axios
-      .put("http://localhost:3001/todo/" + this.state.targetTodo, this.editTodo)
+      .put('http://localhost:3001/todo/' + this.state.targetTodo, this.editTodo)
       .then(data => {
-        console.log(data);
-        this.props.history.push("/todo");
-      });
+        console.log(data)
+        this.props.history.push('/todo')
+      })
   }
 
   // the delete
-  todoDelete(e) {
-    e.preventDefault();
+  todoDelete (e) {
+    e.preventDefault()
     axios
-      .delete("http://localhost:3001/todo/" + this.state.targetTodo)
+      .delete('http://localhost:3001/todo/' + this.state.targetTodo)
       .then(() => {
-        this.props.history.push("/todo");
-      });
+        this.props.history.push('/todo')
+      })
   }
 
-  render() {
+  render () {
     return (
-      <div className="form" id="todo-add-body">
+      <div className='form' id='todo-add-body'>
         <Form onSubmit={this.onEditTodoSubmit}>
           <FormGroup>
-            <Label for="titleInput">Title:</Label>
+            <Label for='titleInput'>Title:</Label>
             <Input
-              type="text"
+              type='text'
               value={
                 this.state.title // defaultValue={this.state.todoFormData.title}
               }
-              name="title"
-              id="titleInput"
+              name='title'
+              id='titleInput'
               onChange={this.handleInputChange}
             />
           </FormGroup>
 
           <FormGroup>
-            <Label for="descInput">Description:</Label>
+            <Label for='descInput'>Description:</Label>
             <Input
-              type="textarea"
+              type='textarea'
               value={this.state.desc}
-              name="desc"
-              id="descInput"
+              name='desc'
+              id='descInput'
               onChange={this.handleInputChange}
             />
           </FormGroup>
           <FormGroup>
-            <Label for="impSelect">Importance:</Label>
+            <Label for='impSelect'>Importance:</Label>
             <Input
-              type="select"
+              type='select'
               value={this.state.imp}
-              name="imp"
-              id="impSelect"
+              name='imp'
+              id='impSelect'
               onChange={this.handleInputChange}
             >
-              <option>Very Low</option>
               <option>Low</option>
               <option>Moderate</option>
               <option>High</option>
-              <option>Very High</option>
-              <option>Critical</option>
             </Input>
           </FormGroup>
 
           <FormGroup>
-            <Label for="catSelect">Category:</Label>
+            <Label for='catSelect'>Category:</Label>
             <Input
-              type="select"
+              type='select'
               value={this.state.cat}
-              name="cat"
-              id="catSelect"
+              name='cat'
+              id='catSelect'
               onChange={this.handleInputChange}
             >
               <option>Health </option>
@@ -141,23 +138,23 @@ class TodoEdit extends Component {
           </FormGroup>
 
           <FormGroup>
-            <Label for="dueDateInput">Due Date:</Label>
+            <Label for='dueDateInput'>Due Date:</Label>
             <Input
-              type="date"
+              type='date'
               value={this.state.dueDate}
-              name="dueDate"
-              id="dueDateInput"
+              name='dueDate'
+              id='dueDateInput'
               onChange={this.handleInputChange}
             />
           </FormGroup>
 
           <FormGroup>
-            <Label for="statusSelect">Status:</Label>
+            <Label for='statusSelect'>Status:</Label>
             <Input
-              type="select"
+              type='select'
               value={this.state.status}
-              name="status"
-              id="statusSelect"
+              name='status'
+              id='statusSelect'
               onChange={this.handleInputChange}
             >
               <option>Backlog</option>
@@ -168,19 +165,19 @@ class TodoEdit extends Component {
             </Input>
           </FormGroup>
 
-          <Button className="form-btn" type="submit">
+          <Button className='form-btn' type='submit'>
             EDIT
           </Button>
         </Form>
         <br />
         <Form onSubmit={this.todoDelete}>
-          <Button className="form-btn" type="submit">
+          <Button className='form-btn' type='submit'>
             DELETE
           </Button>
         </Form>
       </div>
-    );
+    )
   }
 }
 
-export default TodoEdit;
+export default TodoEdit
