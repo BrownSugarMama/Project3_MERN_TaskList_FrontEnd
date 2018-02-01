@@ -2,26 +2,27 @@
   text-align: left;
   padding: 2px;
   widows: 100%;
-  background: #F5F3EE;
+  background: #f5f3ee;
 }
 
 #todo-title {
   text-transform: uppercase;
   font-weight: bold;
-  color:#4A96AD;
+  color: #4a96ad;
   font-size: 18px;
 }
 
 #todos-table-header {
   padding-top: 10px;
   font-weight: bold;
-  background: #4A96AD;
+  background: #4a96ad;
   color: White;
   text-align: left;
+  cursor: pointer;
 }
 
 #todo-columns {
   text-transform: uppercase;
-  color:#4A96AD;
+  color: #4a96ad;
   font-size: 14px;
 }
