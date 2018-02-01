@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
 import './Category.css'
+import CategoryList from './CategoryList'
 import axios from 'axios'
 // import { withRouter } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input, Collapse } from 'reactstrap'
@@ -56,7 +57,9 @@ class Category extends Component {
 
   render () {
     return (
+
       <div className='form' id='todo-add-body'>
+
         <hr />
 
         <Collapse isOpen={this.state.collapse}>
@@ -74,6 +77,7 @@ class Category extends Component {
 
           </Form>
         </Collapse>
+        <CategoryList />
       </div>
     )
   }
