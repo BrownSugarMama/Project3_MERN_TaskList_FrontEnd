@@ -5,6 +5,7 @@ class About extends Component {
   render () {
     return (
       // rough draft just outlining things about the app for now and will proof read and finish up
+      // may move this to the readme section and add something more simple.. notably what the app is about
       <div>
         <h3>About</h3>
 
@@ -43,7 +44,16 @@ class About extends Component {
           <li>Family</li>
         </ul>
         <h4>Due Date</h4>
-        <p>The Due Date Field </p>
+        <p>The Due Date Field is in a calender formate where you can select the date you want your task due.</p>
+        <h4>Status</h4>
+        <p>You have five selections for the status section which are:</p>
+        <ul>
+          <li>Backlog - When something isnt finished and</li>
+          <li>Planned</li>
+          <li>In Process</li>
+          <li>Complete</li>
+          <li>Archive</li>
+        </ul>
       </div>
     )
   }
