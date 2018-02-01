@@ -26,10 +26,24 @@ class About extends Component {
         <h4>Importance</h4>
         <p>There are 3 level of Importance that you can choose from</p>
         <ul>
-          <li>Low</li>
-          <li>Moderate</li>
-          <li>High</li>
+          <li>Low - This level is of least imporantance if chosen, it will be on the bottom of the Todo list</li>
+          <li>Moderate - This level is the average in amount or or intensity, theis level will show up
+            in the middle between low and high within the level of importance</li>
+          <li>High - This level of Importance is the highest level and will be put on the top of the Todo list</li>
         </ul>
+
+        <h4>Category</h4>
+        <p>There are six category fields you can choose from which are:</p>
+        <ul>
+          <li>Work</li>
+          <li>Learning</li>
+          <li>Health</li>
+          <li>School</li>
+          <li>Personal</li>
+          <li>Family</li>
+        </ul>
+        <h4>Due Date</h4>
+        <p>The Due Date Field </p>
       </div>
     )
   }
