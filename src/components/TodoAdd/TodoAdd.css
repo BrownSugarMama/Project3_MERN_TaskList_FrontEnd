@@ -27,14 +27,20 @@
   cursor: pointer;
 } */
 
+/* Button */
 #form-btn {
   color: #7d1935;
   cursor: pointer;
   font-weight: bold;
   font-size: 20px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #7d1935;
 }
 
+/* Button Hover */
 #form-btn:hover {
   background: #F5F3EE;
   color: #4A96AD;
+  border-color: #4A96AD;
 }
