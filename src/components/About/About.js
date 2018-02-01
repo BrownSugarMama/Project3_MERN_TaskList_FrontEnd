@@ -48,8 +48,8 @@ class About extends Component {
         <h4>Status</h4>
         <p>You have five selections for the status section which are:</p>
         <ul>
-          <li>Backlog - When something isnt finished and</li>
-          <li>Planned</li>
+          <li>Backlog - When something isnt finished and you are in the process of doing it</li>
+          <li>Planned - When</li>
           <li>In Process</li>
           <li>Complete</li>
           <li>Archive</li>
