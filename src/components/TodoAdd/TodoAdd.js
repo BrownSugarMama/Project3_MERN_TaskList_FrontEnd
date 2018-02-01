@@ -60,35 +60,40 @@ class TodoAdd extends Component {
   }
 
   getQuote() {
-    axios({
-      method: "get",
-      URL: "https://favqs.com/api/quotes/",
-      params: {
-        filter: "imagination",
-        type: "tag"
-      },
-      responseType: "json",
-      headers: {
-        Authorization: 'Token token="76698700c05834584ae25478a69bbfff"'
-      }
-    })
+    // axios({
+    //   method: "get",
+    //   // baseURL: "https://favqs.com/api/qotd",
+    //   URL: "https://favqs.com/api/quotes/",
+    //   params: { filter: "imagination", type: "tag" },
+    //   responseType: "json",
+    //   headers: {
+    //     Authorization: 'Token token="76698700c05834584ae25478a69bbfff"'
+    //   }
+    // })
+
+    axios
+      .get("https://favqs.com/api/quotes/?filter=imagination&type=tag", {
+        headers: {
+          Authorization: `Token token="0fc8db57aadb0bd4880fe990bd74e1f0"`
+        }
+      })
       .then(response => {
         this.setState({
-          quote: response.data.quote.body + " -- " + response.data.quote.author
+          quote: response.data.quotes[0].body
         });
-        console.log("Response", response.data.quote.body);
+        console.log("Response", response.dataquotes[0].body);
       })
       .catch(function(error) {
         if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        } else if (error.request) {
-          console.log(error.request);
+          console.log("Error 1", error.response.data);
+          console.log("Error 1", error.response.status);
+          console.log("Error 1", error.response.headers);
+        } else if (("Error 2", error.request)) {
+          console.log("Error 2", error.request);
         } else {
-          console.log("Error", error.message);
+          console.log("Error3", error.message);
         }
-        console.log(error.config);
+        console.log("Error 4", error.config);
       });
   }
 
