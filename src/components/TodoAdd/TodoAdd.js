@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
-import './TodoAdd.css'
-import axios from 'axios'
+import React, { Component } from 'react';
+import './TodoAdd.css';
+import axios from 'axios';
 // import { withRouter } from "react-router-dom";
-import { Button, Form, FormGroup, Label, Input, Collapse } from 'reactstrap'
-// import Categories from 'cat'
+import { Button, Form, FormGroup, Label, Input, Collapse } from 'reactstrap';
 
 class TodoAdd extends Component {
   constructor (props) {
@@ -17,16 +16,6 @@ class TodoAdd extends Component {
       status: '',
       collapse: false
     }
-
-    // Cat selector prop for updates
-    // class Cat extends Component {
-    //   constructor(props) {
-    //     super(props)
-    //     this.state = {
-    //       cat: ''
-    //     }
-    //   }
-    // }
 
     this.onAddTodoSubmit = this.onAddTodoSubmit.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -57,17 +46,52 @@ class TodoAdd extends Component {
     console.log('newTodo: ' + this.newTodo)
   }
 
-  componentDidMount () {
-    axios
-      .get('http://localhost:3001/todo/' + this.state.targetTodo)
-      .then(response => {
-        this.setState({
-      // array that loops through the cats
-        })
-      })
-// state.title);
-    console.log('newCat: ' + this.newCat)
-  }
+  //   // Cat selector prop for updates
+
+//   class Cat extends Component {
+//     constructor (props) {
+//       super(props)
+//       this.state = {
+//        catTitle: '',
+
+//        // cat SelectorMenuData: {},
+//         targetCat: this.props.match.params._id
+//       }
+
+//       this.onAddCatSubmit = this.onAddCatSubmit.bind(this)
+//       this.handleInputChange = this.handleInputChange.bind(this)
+//       this.catAdd = this.catAdd.bind(this)
+//     }
+
+//     componentDidMount () {
+//       axios
+//         .get('http://localhost:3001/cat/' + this.state.targetCat)
+//         .then(response => {
+//           this.setState({
+//             title: response.data.title,
+//           })
+//         })
+//     }
+
+//     // sourced from https://reactjs.org/docs/forms.html#handling-multiple-inputs
+//     handleInputChange (event) {
+//       const target = event.target
+//       const value = target.value
+//       const name = target.name
+
+//       this.setState({
+//         [name]: value
+//       })
+//     }
+
+//     componentDidUpdate () {
+//       this.editCat = {
+//         catTitle: this.state.title,
+//       }
+//       // console.log('xdsd' + this.props.match.params._id)
+//      // console.log('test ...' + this.state.todoFormData.title)
+//     }
+//  }
 
   toggle () {
     this.setState({ collapse: !this.state.collapse })
@@ -134,19 +158,13 @@ class TodoAdd extends Component {
                 id='catSelect'
                 onChange={this.handleInputChange}
               >
-              {/* loop through array in state with all options */}
                 <option>Select Category...</option>
-                 <option>
-               function cat
-            
-                  </option>
-                {/* Previous selector options (hardcodde) */}
-                {/* <option>Work </option>
+                <option>Work </option>
                 <option>Learning </option>
                 <option>Health</option>
                 <option>School</option>
                 <option>Personal</option>
-                <option>Family</option> */}
+                <option>Family</option>
               </Input>
             </FormGroup>
 
