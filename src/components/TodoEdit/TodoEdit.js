@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import './TodoEdit.css';
-import axios from 'axios';
+import React, { Component } from 'react'
+import './TodoEdit.css'
+import axios from 'axios'
 // import { withRouter } from 'react-router-dom'
-import { Form, FormGroup, Button, Label, Input } from 'reactstrap';
+import { Form, FormGroup, Button, Label, Input } from 'reactstrap'
 
 class TodoEdit extends Component {
   constructor (props) {
@@ -52,7 +52,7 @@ class TodoEdit extends Component {
       title: this.state.title,
       desc: this.state.desc,
       imp: this.state.imp,
-      cat: this.state.desc,
+      cat: this.state.cat,
       dueDate: this.state.dueDate,
       status: this.state.status
     }
@@ -115,6 +115,7 @@ class TodoEdit extends Component {
               id='impSelect'
               onChange={this.handleInputChange}
             >
+              <option>Select Importance...</option>
               <option>Low</option>
               <option>Moderate</option>
               <option>High</option>
@@ -130,6 +131,7 @@ class TodoEdit extends Component {
               id='catSelect'
               onChange={this.handleInputChange}
             >
+              <option>Select Category...</option>
               <option>Work </option>
               <option>Learning </option>
               <option>Health</option>

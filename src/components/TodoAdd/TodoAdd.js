@@ -38,7 +38,7 @@ class TodoAdd extends Component {
       title: this.state.title,
       desc: this.state.desc,
       imp: this.state.imp,
-      cat: this.state.desc,
+      cat: this.state.cat,
       dueDate: this.state.dueDate,
       status: this.state.status
     };
@@ -111,11 +111,13 @@ class TodoAdd extends Component {
                 id="catSelect"
                 onChange={this.handleInputChange}
               >
-                <option>Select Category...</option>
-                <option>Health </option>
-                <option>Personal </option>
+             <option>Select Category...</option>
+                <option>Work </option>
+                <option>Learning </option>
+                <option>Health</option>
                 <option>School</option>
-                <option>Work</option>
+                <option>Personal</option>
+                <option>Family</option>  
               </Input>
             </FormGroup>
 
