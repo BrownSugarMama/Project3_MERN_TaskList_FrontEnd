@@ -38,7 +38,7 @@ class TodoAdd extends Component {
       title: this.state.title,
       desc: this.state.desc,
       imp: this.state.imp,
-      cat: this.state.desc,
+      cat: this.state.cat,
       dueDate: this.state.dueDate,
       status: this.state.status,
       quote: this.state.quote
@@ -55,6 +55,12 @@ class TodoAdd extends Component {
     axios.post("http://localhost:3001/todo", this.newTodo).then(data => {
       console.log(data);
       this.props.history.push("/todo");
+    });
+  }
+
+  getQuote() {
+    axios.get("http://localhost:3001/todo").then(response => {
+      this.setState({ quote: response.data });
     });
   }
 
@@ -76,7 +82,9 @@ class TodoAdd extends Component {
                 id="quoteInput"
                 onChange={this.handleInputChange}
               />
-              <Button className="form-btn ">GET INSPIRED</Button>
+              <Button className="form-btn " onClick={this.getQuote}>
+                GET INSPIRED
+              </Button>
             </FormGroup>
 
             <FormGroup>

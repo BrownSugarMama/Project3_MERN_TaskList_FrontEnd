@@ -52,7 +52,7 @@ class TodoEdit extends Component {
       title: this.state.title,
       desc: this.state.desc,
       imp: this.state.imp,
-      cat: this.state.desc,
+      cat: this.state.cat,
       dueDate: this.state.dueDate,
       status: this.state.status
     };
@@ -167,17 +167,16 @@ class TodoEdit extends Component {
               <option>Archive</option>
             </Input>
           </FormGroup>
-
-          <Button className="form-btn" type="submit">
-            EDIT
-          </Button>
+          <FormGroup className="input-group">
+            <Button className="form-btn" type="submit">
+              UPDATE
+            </Button>
+            <Button className="form-btn" onClick={this.todoDelete}>
+              DELETE
+            </Button>
+          </FormGroup>
         </Form>
         <br />
-        <Form onSubmit={this.todoDelete}>
-          <Button className="form-btn" type="submit">
-            DELETE
-          </Button>
-        </Form>
       </div>
     );
   }
