@@ -16,7 +16,8 @@ class TodoEdit extends Component {
       status: "",
       quoteObj: {},
       quote: "",
-      targetTodo: this.props.match.params._id
+      targetTodo: this.props.match.params._id,
+      cats: []
     };
 
     this.onEditTodoSubmit = this.onEditTodoSubmit.bind(this);
@@ -34,6 +35,7 @@ class TodoEdit extends Component {
           desc: response.data.desc,
           imp: response.data.imp,
           cat: response.data.cat,
+          status: response.data.status,
           dueDate: response.data.dueDate,
           quote: response.data.quote
         });
@@ -60,6 +62,10 @@ class TodoEdit extends Component {
         }
         console.log("Error 4", error.config);
       });
+
+    axios.get("http://localhost:3001/cat").then(response => {
+      this.setState({ cats: response.data });
+    });
   }
 
   // sourced from https://reactjs.org/docs/forms.html#handling-multiple-inputs
@@ -116,6 +122,9 @@ class TodoEdit extends Component {
   }
 
   render() {
+    let cats = this.state.cats.map((cat, index) => {
+      return <option>{cat.catTitle}</option>;
+    });
     return (
       <div className="form" id="todo-add-body">
         <Form onSubmit={this.onEditTodoSubmit}>
@@ -128,9 +137,9 @@ class TodoEdit extends Component {
               id="quoteInput"
               onChange={this.handleInputChange}
             />
-            <Button className="form-btn " onClick={this.getQuote}>
+            <button id="quote" onClick={this.getQuote}>
               GET INSPIRED
-            </Button>
+            </button>
           </FormGroup>
 
           <FormGroup>
@@ -182,12 +191,7 @@ class TodoEdit extends Component {
               onChange={this.handleInputChange}
             >
               <option>Select Category...</option>
-              <option>Work </option>
-              <option>Learning </option>
-              <option>Health</option>
-              <option>School</option>
-              <option>Personal</option>
-              <option>Family</option>
+              {cats}
             </Input>
           </FormGroup>
 
@@ -220,12 +224,12 @@ class TodoEdit extends Component {
             </Input>
           </FormGroup>
           <FormGroup className="input-group">
-            <Button className="form-btn" type="submit">
+            <button id="form-btn" type="submit">
               UPDATE
-            </Button>
-            <Button className="form-btn" onClick={this.todoDelete}>
+            </button>
+            <button id="form-btn" onClick={this.todoDelete}>
               DELETE
-            </Button>
+            </button>
           </FormGroup>
         </Form>
         <br />

@@ -4,6 +4,7 @@ import "./Todos.css";
 // import { Link, Route } from 'react-router-dom'
 import { Link } from "react-router-dom";
 import TodoAdd from "../TodoAdd/TodoAdd.js";
+import Dashboard from "../Dashboard/Dashboard.js";
 // import Url from from "../Url.js"
 
 import { Container, Row, Col } from "reactstrap";
@@ -14,7 +15,10 @@ class Todos extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: []
+      todos: [],
+      impFilter: "High",
+      compFilter: "Complete",
+      ipFilter: "In-Process"
     };
     this.compareBy.bind(this);
     this.sortBy.bind(this);
@@ -43,6 +47,26 @@ class Todos extends Component {
   }
 
   render() {
+    let impCntArr = this.state.todos.filter(todo => {
+      return todo.imp === this.state.impFilter;
+    });
+    this.impCnt = impCntArr.length;
+    console.log("IMP CNT: " + this.impCnt);
+
+    // get count of completed to-dos
+    let compCntArr = this.state.todos.filter(todo => {
+      return todo.status === this.state.compFilter;
+    });
+    this.compCnt = compCntArr.length;
+    console.log("COMP CNT: " + this.compCnt);
+
+    // get count of in-process tasks
+    let ipCntArr = this.state.todos.filter(todo => {
+      return todo.status === this.state.ipFilter;
+    });
+    this.ipCnt = ipCntArr.length;
+    console.log("IP CNT: " + this.ipCnt);
+
     let { history } = this.props;
     let todos = this.state.todos.map((todo, index) => {
       return (
@@ -72,6 +96,14 @@ class Todos extends Component {
 
     return (
       <div>
+        <br />
+        <Dashboard
+          allCnt={this.state.todos.length}
+          highCnt={this.impCnt}
+          ipCnt={this.ipCnt}
+          compCnt={this.compCnt}
+        />
+        <br />
         <Container>
           <Row id="todo-header">
             <Col xs="6" onClick={() => this.sortBy("title")}>
