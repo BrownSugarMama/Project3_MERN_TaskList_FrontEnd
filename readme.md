@@ -11,7 +11,7 @@ With this front end Todo App, you will need to install the following dependencie
 * react-router-dom
 * bootstrap
 * axios
- [Click here to find and install dependencies](http://www.npmjs.com/) 
+  - [Click here to find and install dependencies](http://www.npmjs.com/) 
 
 ### Installing Back End
  [This also connects to this Repo](https://github.com/BrownSugarMama/Project3_MERN_TaskList_BackEnd)
@@ -20,7 +20,7 @@ With this front end Todo App, you will need to install the following dependencie
 
  
 
- #Description
+#Description
 In the Title description you can put what you need to be reminded about.
 In the description field you type a description of your reminder
 #Importance
