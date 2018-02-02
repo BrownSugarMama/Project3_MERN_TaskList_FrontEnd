@@ -96,13 +96,14 @@ class Todos extends Component {
 
     return (
       <div>
+        <br />
         <Dashboard
           allCnt={this.state.todos.length}
           highCnt={this.impCnt}
           ipCnt={this.ipCnt}
           compCnt={this.compCnt}
         />
-
+        <br />
         <Container>
           <Row id="todo-header">
             <Col xs="6" onClick={() => this.sortBy("title")}>
