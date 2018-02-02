@@ -137,9 +137,9 @@ class TodoEdit extends Component {
               id="quoteInput"
               onChange={this.handleInputChange}
             />
-            <Button className="form-btn " onClick={this.getQuote}>
+            <button id="quote" onClick={this.getQuote}>
               GET INSPIRED
-            </Button>
+            </button>
           </FormGroup>
 
           <FormGroup>
