@@ -4,6 +4,7 @@ import "./Todos.css";
 // import { Link, Route } from 'react-router-dom'
 import { Link } from "react-router-dom";
 import TodoAdd from "../TodoAdd/TodoAdd.js";
+import Dashboard from "../Dashboard/Dashboard.js";
 // import Url from from "../Url.js"
 
 import { Container, Row, Col } from "reactstrap";
@@ -45,8 +46,7 @@ class Todos extends Component {
     });
   }
 
-  componentDidUpdate() {
-    // get count of high importance to-dos
+  render() {
     let impCntArr = this.state.todos.filter(todo => {
       return todo.imp === this.state.impFilter;
     });
@@ -66,9 +66,7 @@ class Todos extends Component {
     });
     this.ipCnt = ipCntArr.length;
     console.log("IP CNT: " + this.ipCnt);
-  }
 
-  render() {
     let { history } = this.props;
     let todos = this.state.todos.map((todo, index) => {
       return (
@@ -98,6 +96,13 @@ class Todos extends Component {
 
     return (
       <div>
+        <Dashboard
+          allCnt={this.state.todos.length}
+          highCnt={this.impCnt}
+          ipCnt={this.ipCnt}
+          compCnt={this.compCnt}
+        />
+
         <Container>
           <Row id="todo-header">
             <Col xs="6" onClick={() => this.sortBy("title")}>
