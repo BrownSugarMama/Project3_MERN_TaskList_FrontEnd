@@ -96,7 +96,7 @@ class TodoAdd extends Component {
         console.log("Error 4", error.config);
       });
 
-    axios.get("http://localhost:3001/cat").then(response => {
+    axios.get(BEND + "/cat").then(response => {
       this.setState({ cats: response.data });
     });
   }
