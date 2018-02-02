@@ -158,6 +158,8 @@ class TodoAdd extends Component {
               <Input
                 type="textarea"
                 name="quote"
+                rows="3"
+                placeholder="Get some inspiration..."
                 value={this.state.quote}
                 id="quoteInput"
                 onChange={this.handleInputChange}
@@ -172,6 +174,7 @@ class TodoAdd extends Component {
               <Input
                 type="text"
                 name="title"
+                placeholder="Enter To-Do title..."
                 id="titleInput"
                 onChange={this.handleInputChange}
               />
@@ -182,6 +185,7 @@ class TodoAdd extends Component {
               <Input
                 type="textarea"
                 name="desc"
+                placeholder="Enter To-Do description..."
                 id="descInput"
                 onChange={this.handleInputChange}
               />
