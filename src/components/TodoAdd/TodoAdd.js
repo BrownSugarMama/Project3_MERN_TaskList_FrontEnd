@@ -100,7 +100,6 @@ class TodoAdd extends Component {
 
   onAddTodoSubmit(e) {
     // e.preventDefault();
-    console.log("NEWTODO: " + this.newTodo);
     axios.post("http://localhost:3001/todo", this.newTodo).then(data => {
       console.log(data);
       this.props.history.push("/todo");
@@ -154,7 +153,6 @@ class TodoAdd extends Component {
           <hr />
           <Form id="formlist" onSubmit={this.onAddTodoSubmit}>
             <FormGroup className="input-group">
-              {/* <Label for="quoteInput">Inspiration:</Label> */}
               <Input
                 type="textarea"
                 name="quote"
