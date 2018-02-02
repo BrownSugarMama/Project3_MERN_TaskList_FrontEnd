@@ -35,6 +35,7 @@ class TodoEdit extends Component {
           desc: response.data.desc,
           imp: response.data.imp,
           cat: response.data.cat,
+          status: response.data.status,
           dueDate: response.data.dueDate,
           quote: response.data.quote
         });

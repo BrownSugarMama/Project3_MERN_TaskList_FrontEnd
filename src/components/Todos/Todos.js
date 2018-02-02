@@ -14,7 +14,10 @@ class Todos extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: []
+      todos: [],
+      impFilter: "High",
+      compFilter: "Complete",
+      ipFilter: "In-Process"
     };
     this.compareBy.bind(this);
     this.sortBy.bind(this);
@@ -40,6 +43,29 @@ class Todos extends Component {
     axios.get("http://localhost:3001/todo").then(response => {
       this.setState({ todos: response.data });
     });
+  }
+
+  componentDidUpdate() {
+    // get count of high importance to-dos
+    let impCntArr = this.state.todos.filter(todo => {
+      return todo.imp === this.state.impFilter;
+    });
+    this.impCnt = impCntArr.length;
+    console.log("IMP CNT: " + this.impCnt);
+
+    // get count of completed to-dos
+    let compCntArr = this.state.todos.filter(todo => {
+      return todo.status === this.state.compFilter;
+    });
+    this.compCnt = compCntArr.length;
+    console.log("COMP CNT: " + this.compCnt);
+
+    // get count of in-process tasks
+    let ipCntArr = this.state.todos.filter(todo => {
+      return todo.status === this.state.ipFilter;
+    });
+    this.ipCnt = ipCntArr.length;
+    console.log("IP CNT: " + this.ipCnt);
   }
 
   render() {
