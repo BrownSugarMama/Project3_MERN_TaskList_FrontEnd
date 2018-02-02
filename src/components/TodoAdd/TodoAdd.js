@@ -15,7 +15,8 @@ class TodoAdd extends Component {
       status: "",
       quoteObj: {},
       quote: "",
-      collapse: false
+      collapse: false,
+      cats: []
     };
 
     this.onAddTodoSubmit = this.onAddTodoSubmit.bind(this);
@@ -47,60 +48,12 @@ class TodoAdd extends Component {
     };
   }
 
-  //   // Cat selector prop for updates
-
-  //   class Cat extends Component {
-  //     constructor (props) {
-  //       super(props)
-  //       this.state = {
-  //        catTitle: '',
-
-  //        // cat SelectorMenuData: {},
-  //         targetCat: this.props.match.params._id
-  //       }
-
-  //       this.onAddCatSubmit = this.onAddCatSubmit.bind(this)
-  //       this.handleInputChange = this.handleInputChange.bind(this)
-  //       this.catAdd = this.catAdd.bind(this)
-  //     }
-
-  //     componentDidMount () {
-  //       axios
-  //         .get('http://localhost:3001/cat/' + this.state.targetCat)
-  //         .then(response => {
-  //           this.setState({
-  //             title: response.data.title,
-  //           })
-  //         })
-  //     }
-
-  //     // sourced from https://reactjs.org/docs/forms.html#handling-multiple-inputs
-  //     handleInputChange (event) {
-  //       const target = event.target
-  //       const value = target.value
-  //       const name = target.name
-
-  //       this.setState({
-  //         [name]: value
-  //       })
-  //     }
-
-  //     componentDidUpdate () {
-  //       this.editCat = {
-  //         catTitle: this.state.title,
-  //       }
-  //       // console.log('xdsd' + this.props.match.params._id)
-  //      // console.log('test ...' + this.state.todoFormData.title)
-  //     }
-  //  }
-
   toggle() {
     this.setState({ collapse: !this.state.collapse });
   }
 
   onAddTodoSubmit(e) {
     // e.preventDefault();
-    console.log("NEWTODO: " + this.newTodo);
     axios.post("http://localhost:3001/todo", this.newTodo).then(data => {
       console.log(data);
       this.props.history.push("/todo");
@@ -141,9 +94,17 @@ class TodoAdd extends Component {
         }
         console.log("Error 4", error.config);
       });
+
+    axios.get("http://localhost:3001/cat").then(response => {
+      this.setState({ cats: response.data });
+    });
   }
 
   render() {
+    let cats = this.state.cats.map((cat, index) => {
+      return <option>{cat.catTitle}</option>;
+    });
+
     return (
       <div className="form" id="todo-add-body">
         <hr />
@@ -154,10 +115,11 @@ class TodoAdd extends Component {
           <hr />
           <Form id="formlist" onSubmit={this.onAddTodoSubmit}>
             <FormGroup className="input-group">
-              {/* <Label for="quoteInput">Inspiration:</Label> */}
               <Input
                 type="textarea"
                 name="quote"
+                rows="3"
+                placeholder="Get some inspiration..."
                 value={this.state.quote}
                 id="quoteInput"
                 onChange={this.handleInputChange}
@@ -172,6 +134,7 @@ class TodoAdd extends Component {
               <Input
                 type="text"
                 name="title"
+                placeholder="Enter To-Do title..."
                 id="titleInput"
                 onChange={this.handleInputChange}
               />
@@ -182,6 +145,7 @@ class TodoAdd extends Component {
               <Input
                 type="textarea"
                 name="desc"
+                placeholder="Enter To-Do description..."
                 id="descInput"
                 onChange={this.handleInputChange}
               />
@@ -211,12 +175,7 @@ class TodoAdd extends Component {
                 onChange={this.handleInputChange}
               >
                 <option>Select Category...</option>
-                <option>Work </option>
-                <option>Learning </option>
-                <option>Health</option>
-                <option>School</option>
-                <option>Personal</option>
-                <option>Family</option>
+                {cats}
               </Input>
             </FormGroup>
 

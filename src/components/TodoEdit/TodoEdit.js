@@ -14,13 +14,15 @@ class TodoEdit extends Component {
       cat: "",
       dueDate: "",
       status: "",
-      // todoFormData: {},
+      quoteObj: {},
+      quote: "",
       targetTodo: this.props.match.params._id
     };
 
     this.onEditTodoSubmit = this.onEditTodoSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.todoDelete = this.todoDelete.bind(this);
+    this.getQuote = this.getQuote.bind(this);
   }
 
   componentDidMount() {
@@ -32,8 +34,31 @@ class TodoEdit extends Component {
           desc: response.data.desc,
           imp: response.data.imp,
           cat: response.data.cat,
-          dueDate: response.data.dueDate
+          dueDate: response.data.dueDate,
+          quote: response.data.quote
         });
+      });
+
+    axios
+      .get("https://favqs.com/api/quotes/?filter=motivat", {
+        headers: {
+          Authorization: `Token token="0fc8db57aadb0bd4880fe990bd74e1f0"`
+        }
+      })
+      .then(response => {
+        this.setState({ quoteObj: response.data });
+      })
+      .catch(function(error) {
+        if (error.response) {
+          console.log("Error 1", error.response.data);
+          console.log("Error 1", error.response.status);
+          console.log("Error 1", error.response.headers);
+        } else if (("Error 2", error.request)) {
+          console.log("Error 2", error.request);
+        } else {
+          console.log("Error3", error.message);
+        }
+        console.log("Error 4", error.config);
       });
   }
 
@@ -55,10 +80,9 @@ class TodoEdit extends Component {
       imp: this.state.imp,
       cat: this.state.cat,
       dueDate: this.state.dueDate,
-      status: this.state.status
+      status: this.state.status,
+      quote: this.state.quote
     };
-    // console.log('xdsd' + this.props.match.params._id)
-    // console.log('test ...' + this.state.todoFormData.title)
   }
 
   onEditTodoSubmit(e) {
@@ -72,7 +96,6 @@ class TodoEdit extends Component {
       });
   }
 
-  // the delete
   todoDelete(e) {
     e.preventDefault();
     axios
@@ -82,10 +105,34 @@ class TodoEdit extends Component {
       });
   }
 
+  getQuote() {
+    let indx = Math.floor(Math.random() * 25);
+    this.setState({
+      quote:
+        this.state.quoteObj.quotes[indx].body +
+        " -- " +
+        this.state.quoteObj.quotes[indx].author
+    });
+  }
+
   render() {
     return (
       <div className="form" id="todo-add-body">
         <Form onSubmit={this.onEditTodoSubmit}>
+          <FormGroup className="input-group">
+            <Input
+              type="textarea"
+              name="quote"
+              rows="3"
+              value={this.state.quote}
+              id="quoteInput"
+              onChange={this.handleInputChange}
+            />
+            <Button className="form-btn " onClick={this.getQuote}>
+              GET INSPIRED
+            </Button>
+          </FormGroup>
+
           <FormGroup>
             <Label for="titleInput">Title:</Label>
             <Input
