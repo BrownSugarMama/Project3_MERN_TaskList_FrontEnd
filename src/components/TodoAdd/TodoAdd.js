@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./TodoAdd.css";
 import axios from "axios";
 import { Button, Form, FormGroup, Label, Input, Collapse } from "reactstrap";
+import BENDURL from "../../constants.js";
 
 class TodoAdd extends Component {
   constructor(props) {
@@ -54,7 +55,7 @@ class TodoAdd extends Component {
 
   onAddTodoSubmit(e) {
     // e.preventDefault();
-    axios.post("http://localhost:3001/todo", this.newTodo).then(data => {
+    axios.post(BENDURL + "/todo", this.newTodo).then(data => {
       console.log(data);
       this.props.history.push("/todo");
     });

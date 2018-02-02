@@ -3,6 +3,7 @@ import "./TodoEdit.css";
 import axios from "axios";
 // import { withRouter } from 'react-router-dom'
 import { Form, FormGroup, Button, Label, Input } from "reactstrap";
+import BENDURL from "../../constants.js";
 
 class TodoEdit extends Component {
   constructor(props) {
@@ -27,19 +28,17 @@ class TodoEdit extends Component {
   }
 
   componentDidMount() {
-    axios
-      .get("http://localhost:3001/todo/" + this.state.targetTodo)
-      .then(response => {
-        this.setState({
-          title: response.data.title,
-          desc: response.data.desc,
-          imp: response.data.imp,
-          cat: response.data.cat,
-          status: response.data.status,
-          dueDate: response.data.dueDate,
-          quote: response.data.quote
-        });
+    axios.get(BENDURL + "/todo/" + this.state.targetTodo).then(response => {
+      this.setState({
+        title: response.data.title,
+        desc: response.data.desc,
+        imp: response.data.imp,
+        cat: response.data.cat,
+        status: response.data.status,
+        dueDate: response.data.dueDate,
+        quote: response.data.quote
       });
+    });
 
     axios
       .get("https://favqs.com/api/quotes/?filter=motivat", {
@@ -63,7 +62,7 @@ class TodoEdit extends Component {
         console.log("Error 4", error.config);
       });
 
-    axios.get("http://localhost:3001/cat").then(response => {
+    axios.get(BENDURL + "/cat").then(response => {
       this.setState({ cats: response.data });
     });
   }
@@ -95,7 +94,7 @@ class TodoEdit extends Component {
     e.preventDefault();
     console.log("editTodo: " + this.editTodo);
     axios
-      .put("http://localhost:3001/todo/" + this.state.targetTodo, this.editTodo)
+      .put(BENDURL + "/todo/" + this.state.targetTodo, this.editTodo)
       .then(data => {
         console.log(data);
         this.props.history.push("/todo");
@@ -104,11 +103,9 @@ class TodoEdit extends Component {
 
   todoDelete(e) {
     e.preventDefault();
-    axios
-      .delete("http://localhost:3001/todo/" + this.state.targetTodo)
-      .then(() => {
-        this.props.history.push("/todo");
-      });
+    axios.delete(BENDURL + "/todo/" + this.state.targetTodo).then(() => {
+      this.props.history.push("/todo");
+    });
   }
 
   getQuote() {

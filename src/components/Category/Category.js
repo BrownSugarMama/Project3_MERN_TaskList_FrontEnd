@@ -1,31 +1,31 @@
-
-import React, { Component } from 'react'
-import './Category.css'
-import axios from 'axios'
+import React, { Component } from "react";
+import "./Category.css";
+import axios from "axios";
 // import { withRouter } from "react-router-dom";
-import { Button, Form, FormGroup, Label, Input, Collapse } from 'reactstrap'
+import { Button, Form, FormGroup, Label, Input, Collapse } from "reactstrap";
+import BENDURL from "../../constants.js";
 
 class Category extends Component {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
-      title: '',
+      title: "",
       collapse: true
-    }
+    };
 
     // this.onAddTodoSubmit = this.onAddTodoSubmit.bind(this)
-    this.handleInputChange = this.handleInputChange.bind(this)
-    this.toggle = this.toggle.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.toggle = this.toggle.bind(this);
   }
 
-  handleInputChange (event) {
-    const target = event.target
-    const value = target.value
-    const name = target.name
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
 
     this.setState({
       [name]: value
-    })
+    });
   }
 
   // componentDidUpdate () {
@@ -41,8 +41,8 @@ class Category extends Component {
   //   console.log('newTodo: ' + this.newTodo)
   // }
 
-  toggle () {
-    this.setState({ collapse: !this.state.collapse })
+  toggle() {
+    this.setState({ collapse: !this.state.collapse });
   }
 
   // onAddTodoSubmit (e) {
@@ -54,29 +54,28 @@ class Category extends Component {
   //   })
   // }
 
-  render () {
+  render() {
     return (
-      <div className='form' id='todo-add-body'>
+      <div className="form" id="todo-add-body">
         <hr />
 
         <Collapse isOpen={this.state.collapse}>
-          <Form id='formlist' onSubmit={this.onAddTodoSubmit}>
-            <input id='todo-add-body' type='submit' value='ADD CATEGORY' />
+          <Form id="formlist" onSubmit={this.onAddTodoSubmit}>
+            <input id="todo-add-body" type="submit" value="ADD CATEGORY" />
             <FormGroup>
-              <Label for='titleInput' />
+              <Label for="titleInput" />
               <Input
-                type='text'
-                name='title'
-                id='titleInput'
+                type="text"
+                name="title"
+                id="titleInput"
                 onChange={this.handleInputChange}
               />
             </FormGroup>
-
           </Form>
         </Collapse>
       </div>
-    )
+    );
   }
 }
 
-export default Category
+export default Category;

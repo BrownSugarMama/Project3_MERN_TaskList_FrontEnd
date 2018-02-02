@@ -5,7 +5,7 @@ import "./Todos.css";
 import { Link } from "react-router-dom";
 import TodoAdd from "../TodoAdd/TodoAdd.js";
 import Dashboard from "../Dashboard/Dashboard.js";
-// import Url from from "../Url.js"
+import BENDURL from "../../constants.js";
 
 import { Container, Row, Col } from "reactstrap";
 // import { SortableContainer, SortableElement, arrayMove } form 'react-sortable-hoc'
@@ -41,7 +41,7 @@ class Todos extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:3001/todo").then(response => {
+    axios.get(BENDURL + "/todo").then(response => {
       this.setState({ todos: response.data });
     });
   }
