@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./TodoEdit.css";
 import axios from "axios";
 // import { withRouter } from 'react-router-dom'
-import { Form, FormGroup, Button, Label, Input } from "reactstrap";
+import { Form, FormGroup, Label, Input } from "reactstrap";
 import BENDURL from "../../constants.js";
 
 class TodoEdit extends Component {
@@ -15,16 +15,12 @@ class TodoEdit extends Component {
       cat: "",
       dueDate: "",
       status: "",
-      quoteObj: {},
-      quote: "",
-      targetTodo: this.props.match.params._id,
-      cats: []
+      targetTodo: this.props.match.params._id
     };
 
     this.onEditTodoSubmit = this.onEditTodoSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.todoDelete = this.todoDelete.bind(this);
-    this.getQuote = this.getQuote.bind(this);
   }
 
   componentDidMount() {
@@ -85,8 +81,7 @@ class TodoEdit extends Component {
       imp: this.state.imp,
       cat: this.state.cat,
       dueDate: this.state.dueDate,
-      status: this.state.status,
-      quote: this.state.quote
+      status: this.state.status
     };
   }
 
@@ -119,26 +114,9 @@ class TodoEdit extends Component {
   }
 
   render() {
-    let cats = this.state.cats.map((cat, index) => {
-      return <option>{cat.catTitle}</option>;
-    });
     return (
       <div className="form" id="todo-add-body">
         <Form onSubmit={this.onEditTodoSubmit}>
-          <FormGroup className="input-group">
-            <Input
-              type="textarea"
-              name="quote"
-              rows="3"
-              value={this.state.quote}
-              id="quoteInput"
-              onChange={this.handleInputChange}
-            />
-            <button id="quote" onClick={this.getQuote}>
-              GET INSPIRED
-            </button>
-          </FormGroup>
-
           <FormGroup>
             <Label for="titleInput">Title:</Label>
             <Input
@@ -188,7 +166,12 @@ class TodoEdit extends Component {
               onChange={this.handleInputChange}
             >
               <option>Select Category...</option>
-              {cats}
+              <option>Work </option>
+              <option>Learning </option>
+              <option>Health</option>
+              <option>School</option>
+              <option>Personal</option>
+              <option>Family</option>
             </Input>
           </FormGroup>
 
@@ -220,16 +203,17 @@ class TodoEdit extends Component {
               <option>Archive</option>
             </Input>
           </FormGroup>
-          <FormGroup className="input-group">
-            <button id="form-btn" type="submit">
-              UPDATE
-            </button>
-            <button id="form-btn" onClick={this.todoDelete}>
-              DELETE
-            </button>
-          </FormGroup>
+
+          <button id="form-btn" type="submit">
+            EDIT
+          </button>
         </Form>
         <br />
+        <Form onSubmit={this.todoDelete}>
+          <button class="btn-group" id="form-btn" type="submit">
+            DELETE
+          </button>
+        </Form>
       </div>
     );
   }
