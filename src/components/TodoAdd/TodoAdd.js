@@ -125,9 +125,9 @@ class TodoAdd extends Component {
                 id="quoteInput"
                 onChange={this.handleInputChange}
               />
-              <button id="quote-btn" onClick={this.getQuote}>
+              <Button className="form-btn " onClick={this.getQuote}>
                 GET INSPIRED
-              </button>
+              </Button>
             </FormGroup>
 
             <FormGroup>

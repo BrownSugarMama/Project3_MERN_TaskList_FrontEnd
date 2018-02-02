@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./TodoEdit.css";
 import axios from "axios";
 // import { withRouter } from 'react-router-dom'
-import { Form, FormGroup, Label, Input } from "reactstrap";
+import { Form, FormGroup, Button, Label, Input } from "reactstrap";
 import BENDURL from "../../constants.js";
 
 class TodoEdit extends Component {
@@ -15,12 +15,16 @@ class TodoEdit extends Component {
       cat: "",
       dueDate: "",
       status: "",
-      targetTodo: this.props.match.params._id
+      targetTodo: this.props.match.params._id,
+      cats: [],
+      quoteObj: {},
+      quote: ""
     };
 
     this.onEditTodoSubmit = this.onEditTodoSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.todoDelete = this.todoDelete.bind(this);
+    this.getQuote = this.getQuote.bind(this);
   }
 
   componentDidMount() {
@@ -81,7 +85,8 @@ class TodoEdit extends Component {
       imp: this.state.imp,
       cat: this.state.cat,
       dueDate: this.state.dueDate,
-      status: this.state.status
+      status: this.state.status,
+      quote: this.state.quote
     };
   }
 
@@ -114,9 +119,26 @@ class TodoEdit extends Component {
   }
 
   render() {
+    let cats = this.state.cats.map((cat, index) => {
+      return <option>{cat.catTitle}</option>;
+    });
     return (
       <div className="form" id="todo-add-body">
         <Form onSubmit={this.onEditTodoSubmit}>
+          <FormGroup className="input-group">
+            <Input
+              type="textarea"
+              name="quote"
+              rows="3"
+              value={this.state.quote}
+              id="quoteInput"
+              onChange={this.handleInputChange}
+            />
+            <Button className="form-btn " onClick={this.getQuote}>
+              GET INSPIRED
+            </Button>
+          </FormGroup>
+
           <FormGroup>
             <Label for="titleInput">Title:</Label>
             <Input
@@ -166,12 +188,7 @@ class TodoEdit extends Component {
               onChange={this.handleInputChange}
             >
               <option>Select Category...</option>
-              <option>Work </option>
-              <option>Learning </option>
-              <option>Health</option>
-              <option>School</option>
-              <option>Personal</option>
-              <option>Family</option>
+              {cats}
             </Input>
           </FormGroup>
 
@@ -195,7 +212,7 @@ class TodoEdit extends Component {
               id="statusSelect"
               onChange={this.handleInputChange}
             >
-              <option>Select Status</option>
+              <option>Select Status...</option>
               <option>Backlog</option>
               <option>Planned </option>
               <option>In-Process</option>
@@ -205,15 +222,18 @@ class TodoEdit extends Component {
           </FormGroup>
 
           <button id="form-btn" type="submit">
-            EDIT
+            SUBMIT
           </button>
-        </Form>
-        <br />
-        <Form onSubmit={this.todoDelete}>
-          <button class="btn-group" id="form-btn" type="submit">
+          <button class="btn-group" id="form-btn" onClick={this.todoDelete}>
             DELETE
           </button>
         </Form>
+        <br />
+        {/* <Form onSubmit={this.todoDelete}>
+          <button class="btn-group" id="form-btn" type="submit">
+            DELETE
+          </button>
+        </Form> */}
       </div>
     );
   }
