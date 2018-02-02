@@ -220,12 +220,12 @@ class TodoEdit extends Component {
             </Input>
           </FormGroup>
           <FormGroup className="input-group">
-            <Button className="form-btn" type="submit">
+            <button id="form-btn" type="submit">
               UPDATE
-            </Button>
-            <Button className="form-btn" onClick={this.todoDelete}>
+            </button>
+            <button id="form-btn" onClick={this.todoDelete}>
               DELETE
-            </Button>
+            </button>
           </FormGroup>
         </Form>
         <br />
