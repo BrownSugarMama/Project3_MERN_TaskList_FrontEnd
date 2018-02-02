@@ -15,10 +15,10 @@ class About extends Component {
         </p>
         <p>
         Under the 'Add Task' button, there are Inspirational quotes to help with stress management and other day to day activities. Inspirational
-        quotes are a great way to boost your mood thoughout the day.
+        quotes are a great way to boost your mood and keep stress to a minimum thoughout the day.
         </p>
         <p>
-          Rather you are on the go, or just need to accomplish somehing at a later date, there is a level of
+          Rather you are on the go, or just need to accomplish something at a later date, there is a level of
           importance button where you can categorize based on the level of Importance. The least importance will
           load on the bottom while the most important or urgent tasks will load on the top.
         </p>
