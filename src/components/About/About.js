@@ -18,6 +18,8 @@ class About extends Component {
         cloud based reminder that can help you when you need to
         remember things. In the todo list you have: Title,
         Description, Importance, Category, Due Date, and Status.
+        Under the 'Add Task' button, there is also an Inspirational
+         quotes to help with managing stress and other day to day activities.
         </p>
 
         <h4>Title</h4>
@@ -48,11 +50,11 @@ class About extends Component {
         <h4>Status</h4>
         <p>You have five selections for the status section which are:</p>
         <ul>
-          <li>Backlog - When something isnt finished and</li>
-          <li>Planned</li>
-          <li>In Process</li>
-          <li>Complete</li>
-          <li>Archive</li>
+          <li>Backlog - When something isnt finished and you are in the process of doing it</li>
+          <li>Planned - When you have something planned (self explanatory)</li>
+          <li>In Process - When in the process of doing the task</li>
+          <li>Complete - When the Task is finished</li>
+          <li>Archive - When storing your task for a later date</li>
         </ul>
       </div>
     )
