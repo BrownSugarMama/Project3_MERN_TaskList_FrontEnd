@@ -56,7 +56,7 @@ There are category fields you can choose from which are:
 * Complete - When the Task is finished
 * Archive - When storing your task for a later date
 
-#Inspirational Quotes
+# Inspirational Quotes
  - Are randomized quotes to help you manage your stress/mood throughout the day.
 
     
