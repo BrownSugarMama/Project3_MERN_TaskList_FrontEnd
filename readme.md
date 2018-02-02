@@ -20,10 +20,10 @@ With this front end Todo App, you will need to install the following dependencie
 
  
 
-#Description
+#### Description
 In the Title description you can put what you need to be reminded about.
 In the description field you type a description of your reminder
-#Importance
+#### Importance
 There are 3 level of Importance that you can choose from
 * Low - This level is of least imporantance if chosen, it will be on the bottom of the Todo list
 * Moderate - This level is the average in amount or or intensity, theis level will show up
@@ -31,7 +31,7 @@ in the middle between low and high within the level of importance
 * High - This level of Importance is the highest level and will be put on the top of the Todo list
 //Still Updating
 
-#Category
+#### Category
 There are six category fields you can choose from which are:
 
 * Work
