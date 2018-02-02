@@ -1,3 +1,3 @@
-const BENDURL = "http://localhost:3001";
+const BENDURL = 'https://tododos.herokuapp.com/';
 
-export default BENDURL;
+export default BENDURL
