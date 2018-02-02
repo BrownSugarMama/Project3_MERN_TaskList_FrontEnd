@@ -14,11 +14,15 @@ With this front end Todo App, you will need to install the following dependencie
   - [Click here to find and install dependencies](http://www.npmjs.com/) 
 
 ### Installing Back End
- [This also connects to this Repo](https://github.com/BrownSugarMama/Project3_MERN_TaskList_BackEnd)
- //installation and instructions on how to run goes here
+ With the back end app, it is also connected to the front end. You will need to install the following dependencies:
+ * npm install
+ * body-parser
+ * method-override
+ * mongoose
+ * express-ejs-layouts
+  - [link to find and install dependencies](http://www.npmjs.com/)
+  - [Link to backend repo to clone](https://github.com/BrownSugarMama/Project3_MERN_TaskList_BackEnd)
 
-
- 
 
 #### Description
 In the Title description you can put what you need to be reminded about.
@@ -29,10 +33,10 @@ There are 3 level of Importance that you can choose from
 * Moderate - This level is the average in amount or or intensity, theis level will show up
 in the middle between low and high within the level of importance
 * High - This level of Importance is the highest level and will be put on the top of the Todo list
-//Still Updating
+
 
 #### Category
-There are six category fields you can choose from which are:
+There are category fields you can choose from which are:
 
 * Work
 * Learning
@@ -42,7 +46,7 @@ There are six category fields you can choose from which are:
 * Family
 
 # Due Date
-* The Due Date Field is in a calender formate where you can select the date you want your task due.
+* The Due Date Field is in a calender format where you can select the date you want your task due.
 
 # Status
 ### You have five selections for the status section which are:
@@ -51,6 +55,9 @@ There are six category fields you can choose from which are:
 * In Process - When in the process of doing the task
 * Complete - When the Task is finished
 * Archive - When storing your task for a later date
+
+#Inspirational Quotes
+ - Are randomized quotes to help you manage your stress/mood throughout the day.
 
     
 
