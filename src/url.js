@@ -1,14 +1,14 @@
 
-import App from './components/App/App.js'
+// import App from './components/App/App.js'
 
-const url = 'http://localhost/
-}
+// const url = 'http://localhost/
+// }
 
-render(
-  <URLProvider urls={urls}>
-    <App />
-  </URLProvider>,
-  document.body
-)
+// render(
+//   <URLProvider urls={urls}>
+//     <App />
+//   </URLProvider>,
+//   document.body
+// )
 
-export default Url
+// export default Url
