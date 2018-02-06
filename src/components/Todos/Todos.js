@@ -1,16 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./Todos.css";
-// import { Link, Route } from 'react-router-dom'
 import { Link } from "react-router-dom";
 import TodoAdd from "../TodoAdd/TodoAdd.js";
 import Dashboard from "../Dashboard/Dashboard.js";
 import BENDURL from "../../constants.js";
 
 import { Container, Row, Col } from "reactstrap";
-// import { SortableContainer, SortableElement, arrayMove } form 'react-sortable-hoc'
 
-// Todo Component
 class Todos extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +30,6 @@ class Todos extends Component {
     };
   }
 
-  // sourced from: https://codepen.io/austinlyons/pen/YpmyJB
   sortBy(key) {
     let todosCopy = [...this.state.todos];
     todosCopy.sort(this.compareBy(key));
@@ -44,9 +40,11 @@ class Todos extends Component {
     axios.get(BENDURL + "/todo").then(response => {
       this.setState({ todos: response.data });
     });
+    console.log("BENDURL: " + BENDURL + "/todo");
   }
 
   render() {
+    // get count of important to-dos
     let impCntArr = this.state.todos.filter(todo => {
       return todo.imp === this.state.impFilter;
     });
@@ -75,7 +73,7 @@ class Todos extends Component {
             <Col xs="6">
               <Link
                 to={`${this.props.match.url}/${todo._id}`}
-                // onClick={this.props.setTodo}
+                onClick={this.props.setTodo}
               >
                 <span id="todo-title">{todo.title}</span>
               </Link>
