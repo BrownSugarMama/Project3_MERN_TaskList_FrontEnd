@@ -142,7 +142,7 @@ class TodoAdd extends Component {
                 </Col>
                 <Col xs="2">
                   <Button className="btn btn-secondary" onClick={this.getQuote}>
-                    GET INSPIRED
+                    get inspired
                   </Button>
                 </Col>
               </Row>
@@ -235,7 +235,7 @@ class TodoAdd extends Component {
                 </Col>
               </Row>
               <button className="btn btn-secondary" type="submit">
-                Add Task
+                add task
               </button>
             </Form>
           </Collapse>

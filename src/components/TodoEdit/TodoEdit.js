@@ -2,7 +2,16 @@ import React, { Component } from "react";
 import "./TodoEdit.css";
 import axios from "axios";
 // import { withRouter } from 'react-router-dom'
-import { Form, FormGroup, Button, Label, Input } from "reactstrap";
+import {
+  Form,
+  FormGroup,
+  Row,
+  Col,
+  Container,
+  Button,
+  Label,
+  Input
+} from "reactstrap";
 import BENDURL from "../../constants.js";
 
 class TodoEdit extends Component {
@@ -124,116 +133,129 @@ class TodoEdit extends Component {
     });
     return (
       <div className="form" id="todo-add-body">
-        <Form onSubmit={this.onEditTodoSubmit}>
-          <FormGroup className="input-group">
-            <Input
-              type="textarea"
-              name="quote"
-              rows="3"
-              value={this.state.quote}
-              id="quoteInput"
-              onChange={this.handleInputChange}
-            />
-            <Button className="form-btn " onClick={this.getQuote}>
-              GET INSPIRED
-            </Button>
-          </FormGroup>
-
-          <FormGroup>
-            <Label for="titleInput">Title:</Label>
-            <Input
-              type="text"
-              value={
-                this.state.title // defaultValue={this.state.todoFormData.title}
-              }
-              name="title"
-              id="titleInput"
-              onChange={this.handleInputChange}
-            />
-          </FormGroup>
-
-          <FormGroup>
-            <Label for="descInput">Description:</Label>
-            <Input
-              type="textarea"
-              value={this.state.desc}
-              name="desc"
-              id="descInput"
-              onChange={this.handleInputChange}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="impSelect">Importance:</Label>
-            <Input
-              type="select"
-              value={this.state.imp}
-              name="imp"
-              id="impSelect"
-              onChange={this.handleInputChange}
-            >
-              <option>Select Importance...</option>
-              <option>Low</option>
-              <option>Moderate</option>
-              <option>High</option>
-            </Input>
-          </FormGroup>
-
-          <FormGroup>
-            <Label for="catSelect">Category:</Label>
-            <Input
-              type="select"
-              value={this.state.cat}
-              name="cat"
-              id="catSelect"
-              onChange={this.handleInputChange}
-            >
-              <option>Select Category...</option>
-              {cats}
-            </Input>
-          </FormGroup>
-
-          <FormGroup>
-            <Label for="dueDateInput">Due Date:</Label>
-            <Input
-              type="date"
-              value={this.state.dueDate}
-              name="dueDate"
-              id="dueDateInput"
-              onChange={this.handleInputChange}
-            />
-          </FormGroup>
-
-          <FormGroup>
-            <Label for="statusSelect">Status:</Label>
-            <Input
-              type="select"
-              value={this.state.status}
-              name="status"
-              id="statusSelect"
-              onChange={this.handleInputChange}
-            >
-              <option>Select Status...</option>
-              <option>Backlog</option>
-              <option>Planned </option>
-              <option>In-Process</option>
-              <option>Complete</option>
-              <option>Archive</option>
-            </Input>
-          </FormGroup>
-
-          <button id="form-btn" type="submit">
-            SUBMIT
-          </button>
-          <button class="btn-group" id="form-btn" onClick={this.todoDelete}>
-            DELETE
-          </button>
-        </Form>
-        <br />
-        {/* <Form onSubmit={this.todoDelete}>
-          <button class="btn-group" id="form-btn" type="submit">
-            DELETE
-          </button>
-        </Form> */}
+        <Container>
+          <Form onSubmit={this.onEditTodoSubmit}>
+            <Row>
+              <Col xs="10">
+                <FormGroup className="input-group">
+                  <Input
+                    type="textarea"
+                    name="quote"
+                    rows="3"
+                    value={this.state.quote}
+                    id="quoteInput"
+                    onChange={this.handleInputChange}
+                  />
+                </FormGroup>
+              </Col>
+              <Col xs="2">
+                <Button className="form-btn " onClick={this.getQuote}>
+                  get inspired
+                </Button>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <FormGroup>
+                  <Label for="titleInput">Title:</Label>
+                  <Input
+                    type="text"
+                    value={
+                      this.state.title // defaultValue={this.state.todoFormData.title}
+                    }
+                    name="title"
+                    id="titleInput"
+                    onChange={this.handleInputChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="descInput">Description:</Label>
+                  <Input
+                    type="textarea"
+                    value={this.state.desc}
+                    name="desc"
+                    id="descInput"
+                    onChange={this.handleInputChange}
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs="6">
+                <FormGroup>
+                  <Label for="impSelect">Importance:</Label>
+                  <Input
+                    type="select"
+                    value={this.state.imp}
+                    name="imp"
+                    id="impSelect"
+                    onChange={this.handleInputChange}
+                  >
+                    <option>Select Importance...</option>
+                    <option>Low</option>
+                    <option>Moderate</option>
+                    <option>High</option>
+                  </Input>
+                </FormGroup>
+              </Col>
+              <Col xs="6">
+                <FormGroup>
+                  <Label for="catSelect">Category:</Label>
+                  <Input
+                    type="select"
+                    value={this.state.cat}
+                    name="cat"
+                    id="catSelect"
+                    onChange={this.handleInputChange}
+                  >
+                    <option>Select Category...</option>
+                    {cats}
+                  </Input>
+                </FormGroup>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs="6">
+                <FormGroup>
+                  <Label for="dueDateInput">Due Date:</Label>
+                  <Input
+                    type="date"
+                    value={this.state.dueDate}
+                    name="dueDate"
+                    id="dueDateInput"
+                    onChange={this.handleInputChange}
+                  />
+                </FormGroup>
+              </Col>
+              <Col xs="6">
+                <FormGroup>
+                  <Label for="statusSelect">Status:</Label>
+                  <Input
+                    type="select"
+                    value={this.state.status}
+                    name="status"
+                    id="statusSelect"
+                    onChange={this.handleInputChange}
+                  >
+                    <option>Select Status...</option>
+                    <option>Backlog</option>
+                    <option>Planned </option>
+                    <option>In-Process</option>
+                    <option>Complete</option>
+                    <option>Archive</option>
+                  </Input>
+                </FormGroup>
+              </Col>
+            </Row>
+            <button className="btn btn-secondary" type="submit">
+              update
+            </button>
+            {"  "}
+            <button className="btn btn-secondary" onClick={this.todoDelete}>
+              delete
+            </button>
+          </Form>
+        </Container>
       </div>
     );
   }
