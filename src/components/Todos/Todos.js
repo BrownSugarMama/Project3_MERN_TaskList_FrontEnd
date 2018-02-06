@@ -71,10 +71,7 @@ class Todos extends Component {
         <div id="todos-body" key={index}>
           <Row>
             <Col xs="6">
-              <Link
-                to={`${this.props.match.url}/${todo._id}`}
-                onClick={this.props.setTodo}
-              >
+              <Link to={`${this.props.match.url}/${todo._id}`}>
                 {todo.title}
               </Link>
             </Col>
