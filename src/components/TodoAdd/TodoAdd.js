@@ -1,7 +1,17 @@
 import React, { Component } from "react";
 import "./TodoAdd.css";
 import axios from "axios";
-import { Button, Form, FormGroup, Label, Input, Collapse } from "reactstrap";
+import {
+  Button,
+  Form,
+  Row,
+  Col,
+  FormGroup,
+  Label,
+  Input,
+  Collapse,
+  Container
+} from "reactstrap";
 import BENDURL from "../../constants.js";
 
 class TodoAdd extends Component {
@@ -107,111 +117,129 @@ class TodoAdd extends Component {
     });
 
     return (
-      <div className="form" id="todo-add-body">
-        <hr />
-        <button id="form-btn" onClick={this.toggle}>
-          ADD TASK
-        </button>
-        <Collapse isOpen={this.state.collapse}>
+      <div>
+        <Container>
           <hr />
-          <Form id="formlist" onSubmit={this.onAddTodoSubmit}>
-            <FormGroup className="input-group">
-              <Input
-                type="textarea"
-                name="quote"
-                rows="3"
-                placeholder="Get some inspiration..."
-                value={this.state.quote}
-                id="quoteInput"
-                onChange={this.handleInputChange}
-              />
-              <Button className="form-btn " onClick={this.getQuote}>
-                GET INSPIRED
-              </Button>
-            </FormGroup>
+          <button className="btn btn-secondary" onClick={this.toggle}>
+            ...
+          </button>
+          <hr />
+          <Collapse isOpen={this.state.collapse}>
+            <Form className="todoAddForm" onSubmit={this.onAddTodoSubmit}>
+              <Row>
+                <Col xs="10">
+                  <FormGroup>
+                    <Input
+                      type="textarea"
+                      name="quote"
+                      rows="3"
+                      placeholder="Get some inspiration..."
+                      value={this.state.quote}
+                      id="quoteInput"
+                      onChange={this.handleInputChange}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col xs="2">
+                  <Button className="btn btn-secondary" onClick={this.getQuote}>
+                    GET INSPIRED
+                  </Button>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <FormGroup>
+                    <Label for="titleInput">Title:</Label>
+                    <Input
+                      type="text"
+                      name="title"
+                      placeholder="Enter To-Do title..."
+                      id="titleInput"
+                      onChange={this.handleInputChange}
+                    />
+                  </FormGroup>
 
-            <FormGroup>
-              <Label for="titleInput">Title:</Label>
-              <Input
-                type="text"
-                name="title"
-                placeholder="Enter To-Do title..."
-                id="titleInput"
-                onChange={this.handleInputChange}
-              />
-            </FormGroup>
-
-            <FormGroup>
-              <Label for="descInput">Description:</Label>
-              <Input
-                type="textarea"
-                name="desc"
-                placeholder="Enter To-Do description..."
-                id="descInput"
-                onChange={this.handleInputChange}
-              />
-            </FormGroup>
-
-            <FormGroup>
-              <Label for="impSelect">Importance:</Label>
-              <Input
-                type="select"
-                name="imp"
-                id="impSelect"
-                onChange={this.handleInputChange}
-              >
-                <option>Select Importance...</option>
-                <option>Low</option>
-                <option>Moderate</option>
-                <option>High</option>
-              </Input>
-            </FormGroup>
-
-            <FormGroup>
-              <Label for="catSelect">Category:</Label>
-              <Input
-                type="select"
-                name="cat"
-                id="catSelect"
-                onChange={this.handleInputChange}
-              >
-                <option>Select Category...</option>
-                {cats}
-              </Input>
-            </FormGroup>
-
-            <FormGroup>
-              <Label for="dueDateInput">Due Date:</Label>
-              <Input
-                type="date"
-                name="dueDate"
-                id="dueDateInput"
-                onChange={this.handleInputChange}
-              />
-            </FormGroup>
-
-            <FormGroup>
-              <Label for="statusSelect">Status:</Label>
-              <Input
-                type="select"
-                name="status"
-                id="statusSelect"
-                onChange={this.handleInputChange}
-              >
-                <option>Select Status</option>
-                <option>Backlog</option>
-                <option>Planned </option>
-                <option>In-Process</option>
-                <option>Complete</option>
-                <option>Archive</option>
-              </Input>
-            </FormGroup>
-
-            <button id="form-btn" type="submit">
-              SUBMIT
-            </button>
-          </Form>
-        </Collapse>
+                  <FormGroup>
+                    <Label for="descInput">Description:</Label>
+                    <Input
+                      type="textarea"
+                      name="desc"
+                      placeholder="Enter To-Do description..."
+                      id="descInput"
+                      onChange={this.handleInputChange}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Row>
+                <Col xs="6">
+                  <FormGroup>
+                    <Label for="impSelect">Importance:</Label>
+                    <Input
+                      type="select"
+                      name="imp"
+                      id="impSelect"
+                      onChange={this.handleInputChange}
+                    >
+                      <option>Select Importance...</option>
+                      <option>Low</option>
+                      <option>Moderate</option>
+                      <option>High</option>
+                    </Input>
+                  </FormGroup>
+                </Col>
+                <Col xs="6">
+                  <FormGroup>
+                    <Label for="catSelect">Category:</Label>
+                    <Input
+                      type="select"
+                      name="cat"
+                      id="catSelect"
+                      onChange={this.handleInputChange}
+                    >
+                      <option>Select Category...</option>
+                      {cats}
+                    </Input>
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Row>
+                <Col xs="6">
+                  <FormGroup>
+                    <Label for="dueDateInput">Due Date:</Label>
+                    <Input
+                      type="date"
+                      name="dueDate"
+                      id="dueDateInput"
+                      onChange={this.handleInputChange}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col xs="6">
+                  <FormGroup>
+                    <Label for="statusSelect">Status:</Label>
+                    <Input
+                      type="select"
+                      name="status"
+                      id="statusSelect"
+                      onChange={this.handleInputChange}
+                    >
+                      <option>Select Status</option>
+                      <option>Backlog</option>
+                      <option>Planned </option>
+                      <option>In-Process</option>
+                      <option>Complete</option>
+                      <option>Archive</option>
+                    </Input>
+                  </FormGroup>
+                </Col>
+              </Row>
+              <button className="btn btn-secondary" type="submit">
+                Add Task
+              </button>
+            </Form>
+          </Collapse>
+        </Container>
       </div>
     );
   }

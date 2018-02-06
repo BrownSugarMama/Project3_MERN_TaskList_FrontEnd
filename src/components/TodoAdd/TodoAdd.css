@@ -1,68 +1,8 @@
-#todo-add-body {
-  padding: 5px 20px;
-  margin: 10px 5px;
-}
-
-#formlist {
-  color: #7d1935;
-  text-transform: uppercase;
-  font-size: 18px;
-}
-
-#addtask {
-  color: #7d1935;
-}
-
-/* .form-btn {
-  color: #7d1935;
-  border-style: solid;
-  background: white;
-  width: 10%;
-  border-color: #7d1935;
-  border-width: medium;
-  padding: 16px 32px;
-  font-weight: bold;
-  margin: 4px 2px;
+.todoAdd {
+  padding-top: 0px;
+  color: White;
+  border-radius: 5px 5px 5px 5px;
+  background: rgb(73, 71, 71);
+  text-align: left;
   cursor: pointer;
-} */
-
-
-/* Button */
-#form-btn {
-  color: #7d1935;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 20px;
-  border-style: solid;
-  border-width: 5px;
-  border-color: #7d1935;
-}
-
-/* Button Hover */
-#form-btn:hover {
-  background: #F5F3EE;
-  color: #4A96AD;
-  border-color: #4A96AD;
-}
-
-.quote-btn {
-  display: inline-block;
-}
-
-/* Quote Button */
-#quote-btn {
-  color:#4A96AD;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 20px;
-  border-style: solid;
-  border-width: 5px;
-  border-color:#4A96AD;
-}
-
-/*Quote  Button Hover */
-#quote-btn:hover {
-  background: #F5F3EE;
-  color:#7d1935;
-  border-color: #7d1935;
 }
