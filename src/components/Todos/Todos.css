@@ -2,27 +2,13 @@
   text-align: left;
   padding: 0px;
   width: 100%;
-  background: #f5f3ee;
-}
-
-#todo-title {
-  text-transform: uppercase;
-  font-weight: bold;
-  color: #4a96ad;
-  font-size: 18px;
 }
 
 #todo-header {
   padding-top: 0px;
-  font-weight: bold;
   color: White;
-  background: #4a96ad;
+  border-radius: 5px 5px 5px 5px;
+  background: rgb(73, 71, 71);
   text-align: left;
   cursor: pointer;
-}
-
-#todo-columns {
-  text-transform: uppercase;
-  color: #4a96ad;
-  font-size: 14px;
 }

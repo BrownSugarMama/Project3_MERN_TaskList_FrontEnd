@@ -75,18 +75,12 @@ class Todos extends Component {
                 to={`${this.props.match.url}/${todo._id}`}
                 onClick={this.props.setTodo}
               >
-                <span id="todo-title">{todo.title}</span>
+                {todo.title}
               </Link>
             </Col>
-            <Col xs="2">
-              <span id="todo-columns">{todo.cat}</span>
-            </Col>
-            <Col xs="2">
-              <span id="todo-columns">{todo.imp}</span>
-            </Col>
-            <Col xs="2">
-              <span id="todo-columns">{todo.status}</span>
-            </Col>
+            <Col xs="2">{todo.cat}</Col>
+            <Col xs="2">{todo.imp}</Col>
+            <Col xs="2">{todo.status}</Col>
           </Row>
         </div>
       );
@@ -105,16 +99,16 @@ class Todos extends Component {
         <Container>
           <Row id="todo-header">
             <Col xs="6" onClick={() => this.sortBy("title")}>
-              TITLE
+              title
             </Col>
             <Col xs="2" onClick={() => this.sortBy("cat")}>
-              CATEGORY
+              category
             </Col>
             <Col xs="2" onClick={() => this.sortBy("imp")}>
-              IMPORTANCE
+              importance
             </Col>
             <Col xs="2" onClick={() => this.sortBy("status")}>
-              STATUS
+              status
             </Col>
           </Row>
 

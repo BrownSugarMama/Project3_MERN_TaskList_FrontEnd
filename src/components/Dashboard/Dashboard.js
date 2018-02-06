@@ -6,14 +6,12 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <Container>
-          <Row className="dash">
-            <Col xs="3" id="dash">
-              TOTAL: {this.props.allCnt}
-            </Col>
-            <Col xs="3">HIGH IMP: {this.props.highCnt}</Col>
-            <Col xs="3">IN-PROCESS: {this.props.ipCnt}</Col>
-            <Col xs="3">COMPLETE: {this.props.compCnt}</Col>
+        <Container className="dash mr-auto">
+          <Row>
+            <Col xs="3">total: {this.props.allCnt}</Col>
+            <Col xs="3">important: {this.props.highCnt}</Col>
+            <Col xs="3">in-process: {this.props.ipCnt}</Col>
+            <Col xs="3">complete: {this.props.compCnt}</Col>
           </Row>
         </Container>
       </div>

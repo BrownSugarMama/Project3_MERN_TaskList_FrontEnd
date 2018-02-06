@@ -4,20 +4,54 @@ import Category from "../Category/Category.js";
 import About from "../About/About.js";
 import Todos from "../Todos/Todos.js";
 import TodoEdit from "../TodoEdit/TodoEdit.js";
-import "./App.css";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink
+} from "reactstrap";
 
 import { Route, Link, Switch, Redirect } from "react-router-dom";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.toggleNavbar = this.toggleNavbar.bind(this);
+    this.state = {
+      collapsed: true
+    };
+  }
+
+  toggleNavbar() {
+    this.setState({
+      collapsed: !this.state.collapsed
+    });
+  }
+
   render() {
     return (
       <div>
-        <nav>
-          <h1>Inspired Tasks</h1>
-          <Link to="/todo">Tasks</Link>
-          <Link to="/category">Category</Link>
-          <Link to="/about">About</Link>
-        </nav>
+        <Navbar color="faded" light>
+          <NavbarBrand href="/todo" className="mr-auto">
+            inspired tasks
+          </NavbarBrand>
+          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+          <Collapse isOpen={!this.state.collapsed} navbar>
+            <Nav navbar>
+              <NavItem>
+                <NavLink href="/category">Category</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/about">About</NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+
         <main>
           <Switch>
             <Route exact path="/todo" render={props => <Todos {...props} />} />
