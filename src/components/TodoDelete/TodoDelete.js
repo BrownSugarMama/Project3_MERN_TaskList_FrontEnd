@@ -31,6 +31,7 @@ class Delete extends Component {
       })
   }
 
+  // Fix this merge conflict!!
 =======
 >>>>>>> neechie
   render () {
