@@ -1,102 +1,107 @@
-import React, { Component } from "react";
-import axios from "axios";
-import "./Todos.css";
+import React, { Component } from 'react'
+import axios from 'axios'
+import './Todos.css'
 // import { Link, Route } from 'react-router-dom'
-import { Link } from "react-router-dom";
-import TodoAdd from "../TodoAdd/TodoAdd.js";
-import Dashboard from "../Dashboard/Dashboard.js";
-import BENDURL from "../../constants.js";
+import { Link } from 'react-router-dom'
+import TodoAdd from '../TodoAdd/TodoAdd.js'
+import Dashboard from '../Dashboard/Dashboard.js'
+import BENDURL from '../../constants.js'
 
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col } from 'reactstrap'
 // import { SortableContainer, SortableElement, arrayMove } form 'react-sortable-hoc'
 
 // Todo Component
 class Todos extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
+    // wouldn't have 'High', 'Complete', 'In-Process' in state since they won't change -- would just have as variables instead
     this.state = {
       todos: [],
-      impFilter: "High",
-      compFilter: "Complete",
-      ipFilter: "In-Process"
-    };
-    this.compareBy.bind(this);
-    this.sortBy.bind(this);
+      impFilter: 'High',
+      compFilter: 'Complete',
+      ipFilter: 'In-Process'
+    }
+    // As it stands this doesn't do anything! needs to be this.compareBy = this.compareBy.bind(this)
+    // You don't need it either since `this` isn't used in your methods
+    this.compareBy.bind(this)
+    this.sortBy.bind(this)
   }
 
   // sourced from: https://codepen.io/austinlyons/pen/YpmyJB
-  compareBy(key) {
-    return function(a, b) {
-      if (a[key] < b[key]) return -1;
-      if (a[key] > b[key]) return 1;
-      return 0;
-    };
+  compareBy (key) {
+    return function (a, b) {
+      if (a[key] < b[key]) return -1
+      if (a[key] > b[key]) return 1
+      return 0
+    }
   }
 
   // sourced from: https://codepen.io/austinlyons/pen/YpmyJB
-  sortBy(key) {
-    let todosCopy = [...this.state.todos];
-    todosCopy.sort(this.compareBy(key));
-    this.setState({ todos: todosCopy });
+  sortBy (key) {
+    let todosCopy = [...this.state.todos]
+    todosCopy.sort(this.compareBy(key))
+    this.setState({ todos: todosCopy })
   }
 
-  componentDidMount() {
-    axios.get(BENDURL + "/todo").then(response => {
-      this.setState({ todos: response.data });
-    });
+  componentDidMount () {
+    axios.get(BENDURL + '/todo').then(response => {
+      this.setState({ todos: response.data })
+    })
   }
 
-  render() {
+  render () {
+    // would DRY this up! Could pass what to filter on as an argument
     let impCntArr = this.state.todos.filter(todo => {
-      return todo.imp === this.state.impFilter;
-    });
-    this.impCnt = impCntArr.length;
-    console.log("IMP CNT: " + this.impCnt);
+      return todo.imp === this.state.impFilter
+    })
+    this.impCnt = impCntArr.length
+    console.log('IMP CNT: ' + this.impCnt)
 
     // get count of completed to-dos
     let compCntArr = this.state.todos.filter(todo => {
-      return todo.status === this.state.compFilter;
-    });
-    this.compCnt = compCntArr.length;
-    console.log("COMP CNT: " + this.compCnt);
+      return todo.status === this.state.compFilter
+    })
+    this.compCnt = compCntArr.length
+    console.log('COMP CNT: ' + this.compCnt)
 
     // get count of in-process tasks
     let ipCntArr = this.state.todos.filter(todo => {
-      return todo.status === this.state.ipFilter;
-    });
-    this.ipCnt = ipCntArr.length;
-    console.log("IP CNT: " + this.ipCnt);
+      return todo.status === this.state.ipFilter
+    })
+    this.ipCnt = ipCntArr.length
+    console.log('IP CNT: ' + this.ipCnt)
 
-    let { history } = this.props;
+    let { history } = this.props
     let todos = this.state.todos.map((todo, index) => {
       return (
-        <div id="todos-body" key={index}>
+        <div id='todos-body' key={index}>
           <Row>
-            <Col xs="6">
+            <Col xs='6'>
               <Link
                 to={`${this.props.match.url}/${todo._id}`}
                 // onClick={this.props.setTodo}
               >
-                <span id="todo-title">{todo.title}</span>
+                <span id='todo-title'>{todo.title}</span>
               </Link>
             </Col>
-            <Col xs="2">
-              <span id="todo-columns">{todo.cat}</span>
+            <Col xs='2'>
+              <span id='todo-columns'>{todo.cat}</span>
             </Col>
-            <Col xs="2">
-              <span id="todo-columns">{todo.imp}</span>
+            <Col xs='2'>
+              <span id='todo-columns'>{todo.imp}</span>
             </Col>
-            <Col xs="2">
-              <span id="todo-columns">{todo.status}</span>
+            <Col xs='2'>
+              <span id='todo-columns'>{todo.status}</span>
             </Col>
           </Row>
         </div>
-      );
-    });
+      )
+    })
 
     return (
       <div>
         <br />
+        {/* Again -- would fill out the full word instead of abbreviation */}
         <Dashboard
           allCnt={this.state.todos.length}
           highCnt={this.impCnt}
@@ -105,17 +110,17 @@ class Todos extends Component {
         />
         <br />
         <Container>
-          <Row id="todo-header">
-            <Col xs="6" onClick={() => this.sortBy("title")}>
+          <Row id='todo-header'>
+            <Col xs='6' onClick={() => this.sortBy('title')}>
               TITLE
             </Col>
-            <Col xs="2" onClick={() => this.sortBy("cat")}>
+            <Col xs='2' onClick={() => this.sortBy('cat')}>
               CATEGORY
             </Col>
-            <Col xs="2" onClick={() => this.sortBy("imp")}>
+            <Col xs='2' onClick={() => this.sortBy('imp')}>
               IMPORTANCE
             </Col>
-            <Col xs="2" onClick={() => this.sortBy("status")}>
+            <Col xs='2' onClick={() => this.sortBy('status')}>
               STATUS
             </Col>
           </Row>
@@ -124,8 +129,8 @@ class Todos extends Component {
         </Container>
         <TodoAdd history={history} />
       </div>
-    );
+    )
   }
 }
 
-export default Todos;
+export default Todos
