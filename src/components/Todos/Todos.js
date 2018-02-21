@@ -72,6 +72,10 @@ class Todos extends Component {
           <Row>
             <Col xs="6">
               <Link to={`${this.props.match.url}/${todo._id}`}>
+                <span>
+                  <i className="material-icons">list</i>
+                </span>{" "}
+                {"  "}
                 {todo.title}
               </Link>
             </Col>

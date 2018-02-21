@@ -35,16 +35,16 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar color="faded" light>
+        <Navbar className="bg-primary" light>
           <NavbarBrand href="/todo" className="mr-auto">
             inspired tasks
           </NavbarBrand>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse isOpen={!this.state.collapsed} navbar>
             <Nav navbar>
-              <NavItem>
+              {/* <NavItem>
                 <NavLink href="/category">Category</NavLink>
-              </NavItem>
+              </NavItem> */}
               <NavItem>
                 <NavLink href="/about">About</NavLink>
               </NavItem>
@@ -56,7 +56,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/todo" render={props => <Todos {...props} />} />
             {<Route path="/todo/:_id" component={TodoEdit} />}
-            <Route path="/category" render={() => <Category />} />
+            {/* <Route path="/category" render={() => <Category />} /> */}
             <Route path="/about" render={() => <About />} />
             <Route path="/*" render={() => <Redirect to="/todo" />} />
           </Switch>

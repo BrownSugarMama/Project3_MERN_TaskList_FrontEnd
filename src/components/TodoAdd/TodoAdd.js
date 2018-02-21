@@ -83,7 +83,7 @@ class TodoAdd extends Component {
 
   componentDidMount() {
     axios
-      .get("https://favqs.com/api/quotes/?filter=motivat", {
+      .get("https://favqs.com/api/quotes/?filter=business", {
         headers: {
           Authorization: `Token token="0fc8db57aadb0bd4880fe990bd74e1f0"`
         }

@@ -12,3 +12,7 @@
   text-align: left;
   cursor: pointer;
 }
+
+.material-icons {
+  vertical-align: bottom;
+}

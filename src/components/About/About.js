@@ -7,19 +7,28 @@ class About extends Component {
     return (
       <div>
         <Container>
-          <Row />
-          <Row>
-            <Col xs="2" />
-            <Col xs="8">
-              The inspired task app helps users organize and track tasks. The
-              app allows users to classify tasks, track task status, designate
-              task importance, sort tasks, and summarize task accomplishments.
-              The app also provides inspirational quotes that are designed to
-              motivate task completion.
-            </Col>
-            <Col xs="2" />
-          </Row>
-          <Row />
+          <div id="parent">
+            <div id="child">
+              <h6>
+                This app helps users organize and track tasks. The app allows
+                users to classify tasks, track task status, designate task
+                importance, sort tasks, and summarize task accomplishments. The
+                app also provides inspirational quotes that are designed to
+                motivate task completion.
+              </h6>
+              <br />
+              <h6>
+                The app pulls inspirational quotes (formatted as JSON from the
+                API at favqs.com.{" "}
+              </h6>
+              <br />
+              <h6>
+                {" "}
+                This app is implemented with Mongo-Express-React-Node (MERN)
+                technologies.
+              </h6>
+            </div>
+          </div>
         </Container>
       </div>
     );
