@@ -6,7 +6,7 @@ import TodoAdd from "../TodoAdd/TodoAdd.js";
 import Dashboard from "../Dashboard/Dashboard.js";
 import BENDURL from "../../constants.js";
 
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, Breadcrumb, BreadcrumbItem } from "reactstrap";
 
 class Todos extends Component {
   constructor(props) {
@@ -90,6 +90,13 @@ class Todos extends Component {
     return (
       <div>
         <br />
+        <Container>
+          <hr />
+          <Breadcrumb>
+            <BreadcrumbItem active>to-do list</BreadcrumbItem>
+          </Breadcrumb>
+          <hr />
+        </Container>
         <Dashboard
           allCnt={this.state.todos.length}
           highCnt={this.impCnt}
