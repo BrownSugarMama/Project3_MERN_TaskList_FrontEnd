@@ -98,7 +98,7 @@ class Todos extends Component {
         />
         <br />
         <Container>
-          <Row id="todo-header">
+          <Row className="bg-primary" id="todo-header">
             <Col xs="6" onClick={() => this.sortBy("title")}>
               title
             </Col>

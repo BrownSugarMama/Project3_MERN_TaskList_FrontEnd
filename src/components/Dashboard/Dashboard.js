@@ -6,7 +6,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <Container className="dash mr-auto">
+        <Container className="bg-primary dash mr-auto">
           <Row>
             <Col xs="3">total: {this.props.allCnt}</Col>
             <Col xs="3">important: {this.props.highCnt}</Col>
